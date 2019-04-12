@@ -1,16 +1,15 @@
 import React from 'react';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
 
 import MainMenu from './main/MainMenu';
-import Splash from './splash/Splash';
+import NoMatch from './404/NoMatch';
 
 function App() {
   return (
-    <>
-      <Splash />
-      {/* this should be a route */}
-      <MainMenu />
-    </>
+    <Switch>
+      <Route exact path="/" component={MainMenu} />
+      <Route component={NoMatch} />
+    </Switch>
   );
 }
 
