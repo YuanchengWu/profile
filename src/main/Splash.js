@@ -4,8 +4,8 @@ import styled from 'styled-components/macro';
 const SplashText = styled.h1`
   font-family: ChakraPetch-light;
   font-size: 48px;
-  color: #bee4ff;
-  text-shadow: 0 0 15px #8bc9f6;
+  color: ${props => props.theme.fill6};
+  text-shadow: 0 0 15px ${props => props.theme.fill5};
 `;
 
 export default function Splash() {
