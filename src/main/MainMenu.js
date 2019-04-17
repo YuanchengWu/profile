@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// import Splash from './Splash';
+import Splash from './Splash';
 import MenuItem from './MenuItem';
 
 const Title = styled.h2`
@@ -19,7 +19,7 @@ const Title = styled.h2`
 export default function MainMenu() {
   return (
     <div>
-      {/* <Splash /> */}
+      <Splash />
       <Title>Main Menu</Title>
       <ul>
         <MenuItem name="About" />

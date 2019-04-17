@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
   }
+  @import url('https://fonts.googleapis.com/css?family=Chakra+Petch');
   html, body {
     min-height: 100vh;
     margin: 0;
