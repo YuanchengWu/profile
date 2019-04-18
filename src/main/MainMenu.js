@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import Splash from './Splash';
 import MenuItem from './MenuItem';
 
+const MainWrapper = styled.div`
+  /* height: 100vh; */
+`;
+
 const Title = styled.h2`
   font-family: 'T.C.SYSTEM';
   font-size: 32px;
@@ -18,16 +22,16 @@ const Title = styled.h2`
 
 export default function MainMenu() {
   return (
-    <div>
+    <MainWrapper>
       <Splash />
-      <Title>Main Menu</Title>
-      <ul>
+      {/* <Title>Main Menu</Title> */}
+      {/* <ul>
         <MenuItem name="About" />
         <MenuItem name="Skills" />
         <MenuItem name="Projects" />
         <MenuItem name="Experience" />
         <MenuItem name="Contact" />
-      </ul>
-    </div>
+      </ul> */}
+    </MainWrapper>
   );
 }

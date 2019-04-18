@@ -23,7 +23,7 @@ function App() {
             <Route component={NoMatch} />
           </Switch>
           {/* https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd */}
-          <div>theme switch</div>
+          {/* <div>theme switch</div> */}
         </Background>
       </>
     </ThemeProvider>
