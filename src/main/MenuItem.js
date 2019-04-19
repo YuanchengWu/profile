@@ -19,6 +19,7 @@ const Item = styled.a`
 
 const ListItem = styled.li`
   list-style: none;
+  margin-bottom: 32px;
 `;
 
 export default function MenuItem(props) {

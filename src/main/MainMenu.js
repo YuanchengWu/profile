@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Splash from './Splash';
@@ -17,21 +17,34 @@ const Title = styled.h2`
     0 0 10px ${props => props.theme.fill4},
     0 0 15px ${props => props.theme.fill5};
   text-transform: uppercase;
-  margin: 0;
+  margin: 72px 0 0 72px;
+`;
+
+const MenuItemList = styled.ul`
+  margin: 96px 0 0 120px;
+  padding: 0;
 `;
 
 export default function MainMenu() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  function handleSplashUnmount() {
+    setShowSplash(false);
+  }
+
   return (
     <MainWrapper>
-      <Splash />
-      {/* <Title>Main Menu</Title> */}
-      {/* <ul>
-        <MenuItem name="About" />
-        <MenuItem name="Skills" />
-        <MenuItem name="Projects" />
-        <MenuItem name="Experience" />
-        <MenuItem name="Contact" />
-      </ul> */}
+      {showSplash && <Splash unmount={handleSplashUnmount} />}
+      {!showSplash && <Title>Main Menu</Title>}
+      {!showSplash && (
+        <MenuItemList>
+          <MenuItem name="About" />
+          <MenuItem name="Skills" />
+          <MenuItem name="Projects" />
+          <MenuItem name="Experience" />
+          <MenuItem name="Contact" />
+        </MenuItemList>
+      )}
     </MainWrapper>
   );
 }

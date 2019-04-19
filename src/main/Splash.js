@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components/macro';
 
 import Icon from '../components/Icon';
+
+const typingDelay = 50;
+const splashDuration = 2;
+const splashSustain = 1.5;
+const text = 'Hi, my name is John. I’m a web developer';
+const fadeDelay =
+  splashDuration + (text.length * typingDelay) / 1000 + splashSustain;
 
 const SplashStyle = styled.div`
   height: 100vh;
@@ -10,6 +17,16 @@ const SplashStyle = styled.div`
   align-content: center;
   display: flex;
   flex-wrap: wrap;
+  animation: fade 1s linear ${fadeDelay}s 1 normal forwards;
+
+  @keyframes fade {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 `;
 
 const SplashText = styled.h1`
@@ -27,25 +44,34 @@ const SplashText = styled.h1`
 
 // TODO: add pause after period
 let counter = 0;
-const typingDelay = 50;
-const splashDuration = 2;
-const text = 'Hi, my name is John. I’m a web developer';
 
-export default function Splash() {
+/**
+ * Icon and splash text components
+ * @param {Object} props
+ */
+export default function Splash(props) {
   const [typedText, setTypedText] = useState('');
-  const [start, setStart] = useState(false);
+  const [startTyping, setStartTyping] = useState(false);
 
-  if (!start) {
-    setTimeout(() => setStart(true), splashDuration * 1000);
+  if (!startTyping) {
+    setTimeout(() => setStartTyping(true), splashDuration * 1000);
+    setTimeout(() => dismiss(), (fadeDelay + splashSustain) * 1000);
   }
 
   // typing effect
-  if (start && counter < text.length) {
+  if (startTyping && counter < text.length) {
     const char = text.charAt(counter);
     setTimeout(
       () => setTypedText(typedText.slice(0, counter++) + char + '▌'),
       typingDelay
     );
+  }
+
+  /**
+   * unmount splash components after animation
+   */
+  function dismiss() {
+    props.unmount();
   }
 
   return (
