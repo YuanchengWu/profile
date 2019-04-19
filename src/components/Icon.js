@@ -5,22 +5,25 @@ const SVG = styled.svg`
   min-width: 280px;
   padding-right: 2rem;
   stroke: ${props => props.theme.fill6};
-  animation: scale-and-slide ${props => props.duration}s ease-out;
   filter: drop-shadow(0px 0px 1px ${props => props.theme.fill3})
     drop-shadow(0px 0px 2px ${props => props.theme.fill4})
     drop-shadow(0px 0px 4px ${props => props.theme.fill5});
   will-change: transform, opacity;
 
+  ${props =>
+    props.animate &&
+    `
+  animation: scale-and-slide ${props.duration}s ease-out;
   .left-bracket {
-    animation: slide-left ${props => props.duration / 2}s ease;
+    animation: slide-left ${props.duration / 2}s ease;
   }
 
   .right-bracket {
-    animation: slide-right ${props => props.duration / 2}s ease;
+    animation: slide-right ${props.duration / 2}s ease;
   }
 
   .horse {
-    animation: fade-in ${props => props.duration / 2}s linear;
+    animation: fade-in ${props.duration / 2}s linear;
   }
 
   @keyframes scale-and-slide {
@@ -61,11 +64,13 @@ const SVG = styled.svg`
       opacity: 1;
     }
   }
+  `}
 `;
 
 export default function Icon(props) {
   return (
     <SVG
+      animate={props.animate}
       duration={props.duration}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1264 800"

@@ -50,7 +50,7 @@ export default function Splash() {
 
   return (
     <SplashStyle>
-      <Icon duration={splashDuration} />
+      <Icon animate duration={splashDuration} />
       <SplashText>{typedText}</SplashText>
     </SplashStyle>
   );
