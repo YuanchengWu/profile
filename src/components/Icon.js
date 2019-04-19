@@ -5,30 +5,30 @@ const SVG = styled.svg`
   min-width: 280px;
   padding-right: 2rem;
   stroke: ${props => props.theme.fill6};
-  animation: shrink 2s ease-out;
+  animation: scale-and-slide ${props => props.duration}s ease-out;
   filter: drop-shadow(0px 0px 1px ${props => props.theme.fill3})
     drop-shadow(0px 0px 2px ${props => props.theme.fill4})
     drop-shadow(0px 0px 4px ${props => props.theme.fill5});
   will-change: transform, opacity;
 
   .left-bracket {
-    animation: slide-left 1s ease;
+    animation: slide-left ${props => props.duration / 2}s ease;
   }
 
   .right-bracket {
-    animation: slide-right 1s ease;
+    animation: slide-right ${props => props.duration / 2}s ease;
   }
 
   .horse {
-    animation: fade-in 1s linear;
+    animation: fade-in ${props => props.duration / 2}s linear;
   }
 
-  @keyframes shrink {
+  @keyframes scale-and-slide {
     0% {
-      transform: scale(2);
+      transform: scale(2) translateX(10vw);
     }
     50% {
-      transform: scale(2);
+      transform: scale(2) translateX(10vw);
     }
     100% {
       transform: scale(1);
@@ -63,9 +63,13 @@ const SVG = styled.svg`
   }
 `;
 
-export default function Icon() {
+export default function Icon(props) {
   return (
-    <SVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1264 800">
+    <SVG
+      duration={props.duration}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1264 800"
+    >
       <g fill="none" fillRule="evenodd" strokeWidth="16">
         <path
           className="horse"

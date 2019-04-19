@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 
 import Icon from '../components/Icon';
@@ -23,14 +23,35 @@ const SplashText = styled.h1`
   text-shadow: 0 0 5px ${props => props.theme.fill3},
     0 0 10px ${props => props.theme.fill4},
     0 0 15px ${props => props.theme.fill5};
-  }
 `;
 
+// TODO: add pause after period
+let counter = 0;
+const typingDelay = 50;
+const splashDuration = 2;
+const text = 'Hi, my name is John. I’m a web developer';
+
 export default function Splash() {
+  const [typedText, setTypedText] = useState('');
+  const [start, setStart] = useState(false);
+
+  if (!start) {
+    setTimeout(() => setStart(true), splashDuration * 1000);
+  }
+
+  // typing effect
+  if (start && counter < text.length) {
+    const char = text.charAt(counter);
+    setTimeout(
+      () => setTypedText(typedText.slice(0, counter++) + char + '▌'),
+      typingDelay
+    );
+  }
+
   return (
     <SplashStyle>
-      <Icon />
-      <SplashText>Hi, my name is John. I’m a web developer_</SplashText>
+      <Icon duration={splashDuration} />
+      <SplashText>{typedText}</SplashText>
     </SplashStyle>
   );
 }
