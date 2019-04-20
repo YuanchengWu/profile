@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Splash from './Splash';
 import MenuItem from './MenuItem';
+import Description from '../components/Description';
 
 const MainWrapper = styled.div`
   /* height: 100vh; */
@@ -26,7 +27,7 @@ const MenuItemList = styled.ul`
 `;
 
 export default function MainMenu() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(false);
 
   function handleSplashUnmount() {
     setShowSplash(false);
@@ -34,7 +35,7 @@ export default function MainMenu() {
 
   return (
     <MainWrapper>
-      {showSplash && <Splash unmount={handleSplashUnmount} />}
+      {/* {showSplash && <Splash unmount={handleSplashUnmount} />} */}
       {!showSplash && <Title>Main Menu</Title>}
       {!showSplash && (
         <MenuItemList>
@@ -45,6 +46,7 @@ export default function MainMenu() {
           <MenuItem name="Contact" />
         </MenuItemList>
       )}
+      {!showSplash && <Description />}
     </MainWrapper>
   );
 }
