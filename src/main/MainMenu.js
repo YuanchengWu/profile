@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
 
 import Splash from './Splash';
 import MenuItem from './MenuItem';
@@ -27,7 +28,7 @@ const MenuItemList = styled.ul`
 `;
 
 export default function MainMenu() {
-  const [showSplash, setShowSplash] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
 
   function handleSplashUnmount() {
     setShowSplash(false);
@@ -35,8 +36,16 @@ export default function MainMenu() {
 
   return (
     <MainWrapper>
-      {/* {showSplash && <Splash unmount={handleSplashUnmount} />} */}
-      {!showSplash && <Title>Main Menu</Title>}
+      {showSplash && <Splash unmount={handleSplashUnmount} />}
+      {!showSplash && (
+        <Title>
+          <FormattedMessage
+            id="main.title"
+            defaultMessage="Main Menu"
+            description="Main menu title text"
+          />
+        </Title>
+      )}
       {!showSplash && (
         <MenuItemList>
           <MenuItem name="About" />

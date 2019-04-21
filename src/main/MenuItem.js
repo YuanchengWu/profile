@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
 
 const Item = styled.a`
   font-family: 'T.C.SYSTEM';
@@ -25,7 +26,14 @@ const ListItem = styled.li`
 export default function MenuItem(props) {
   return (
     <ListItem>
-      <Item href={props.href}>{props.name}</Item>
+      <Item href={props.href}>
+        <FormattedMessage
+          id={'main.' + props.name.toLowerCase()}
+          defaultMessage="{name}"
+          description="Menu item text for {name}"
+          values={{ name: props.name }}
+        />
+      </Item>
     </ListItem>
   );
 }
