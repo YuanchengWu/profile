@@ -28,7 +28,7 @@ const MenuItemList = styled.ul`
 `;
 
 export default function MainMenu() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(false);
 
   function handleSplashUnmount() {
     setShowSplash(false);
@@ -36,7 +36,7 @@ export default function MainMenu() {
 
   return (
     <MainWrapper>
-      {showSplash && <Splash unmount={handleSplashUnmount} />}
+      {/* {showSplash && <Splash unmount={handleSplashUnmount} />} */}
       {!showSplash && (
         <Title>
           <FormattedMessage

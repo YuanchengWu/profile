@@ -25,14 +25,8 @@ const messages = {
 function App() {
   const [language, setLanguage] = useState('en');
 
-  function onChangeLanguage(lang) {
-    console.log('changing to', lang);
-    setLanguage(lang);
-  }
-
   return (
     // TODO: make theme switcher and use dynamic themes
-
     <ThemeProvider theme={themes.dark.blue}>
       <IntlProvider
         key={language}
@@ -49,7 +43,7 @@ function App() {
             </Switch>
             {/* https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd */}
             {/* <div>theme switch</div> */}
-            <LocaleSlider changeLanguage={onChangeLanguage} />
+            <LocaleSlider changeLanguage={setLanguage} />
           </Background>
         </>
       </IntlProvider>
