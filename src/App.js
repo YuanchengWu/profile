@@ -8,7 +8,9 @@ import { GlobalStyle, themes } from './GlobalStyle';
 import MainMenu from './main/MainMenu';
 import About from './about/About';
 import NoMatch from './404/NoMatch';
-import { Background } from './components/Background';
+import { PageContent } from './layout/PageContent';
+import { Footer } from './layout/Footer';
+import { Background } from './layout/Background';
 import LocaleSlider from './components/LocaleSlider';
 
 import en from 'react-intl/locale-data/en';
@@ -24,6 +26,7 @@ const messages = {
 
 function App() {
   const [language, setLanguage] = useState('en');
+  const [showSplash, setShowSplash] = useState(true);
 
   return (
     // TODO: make theme switcher and use dynamic themes
@@ -36,14 +39,28 @@ function App() {
         <>
           <GlobalStyle />
           <Background>
-            <Switch>
-              <Route exact path="/" component={MainMenu} />
-              <Route path="/about" component={About} />
-              <Route component={NoMatch} />
-            </Switch>
-            {/* https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd */}
-            {/* <div>theme switch</div> */}
-            <LocaleSlider changeLanguage={setLanguage} />
+            <PageContent>
+              <Switch>
+                <Route
+                  exact
+                  path="/"
+                  render={props => (
+                    <MainMenu
+                      {...props}
+                      showSplash={showSplash}
+                      setShowSplash={setShowSplash}
+                    />
+                  )}
+                />
+                <Route path="/about" component={About} />
+                <Route component={NoMatch} />
+              </Switch>
+            </PageContent>
+            <Footer>
+              {/* https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd */}
+              {/* <div>theme switch</div> */}
+              <LocaleSlider changeLanguage={setLanguage} />
+            </Footer>
           </Background>
         </>
       </IntlProvider>

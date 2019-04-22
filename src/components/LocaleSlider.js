@@ -10,10 +10,10 @@ const SliderWrapper = styled.div`
   background-color: transparent;
   box-shadow: 0 0 5px ${props => props.theme.fill3},
     0 0 10px ${props => props.theme.fill4},
-    0 0 15px ${props => props.theme.fill5},
-    inset 0 0 5px ${props => props.theme.fill3},
+    0 0 15px ${props => props.theme.fill5};
+    /* inset 0 0 5px ${props => props.theme.fill3},
     inset 0 0 10px ${props => props.theme.fill4},
-    inset 0 0 15px ${props => props.theme.fill5};
+    inset 0 0 15px ${props => props.theme.fill5}; */
 `;
 
 const Button = styled.button`

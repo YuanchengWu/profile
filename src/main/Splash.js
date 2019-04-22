@@ -24,7 +24,7 @@ const SplashStyle = styled.div`
   }
 `;
 
-function Splash({ intl, unmount }) {
+function Splash({ intl, setShowSplash }) {
   const [startTyping, setStartTyping] = useState(false);
 
   const typingDelay = 50;
@@ -38,14 +38,7 @@ function Splash({ intl, unmount }) {
 
   if (!startTyping) {
     setTimeout(() => setStartTyping(true), splashDuration * 1000);
-    setTimeout(() => dismiss(), (fadeDelay + splashSustain) * 1000);
-  }
-
-  /**
-   * unmount splash components after animation
-   */
-  function dismiss() {
-    unmount();
+    setTimeout(() => setShowSplash(false), (fadeDelay + splashSustain) * 1000);
   }
 
   return (
