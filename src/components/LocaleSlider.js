@@ -4,6 +4,7 @@ import { injectIntl } from 'react-intl';
 
 const SliderWrapper = styled.div`
   border: 2px solid ${props => props.theme.fill6};
+  box-sizing: border-box;
   width: 106px;
   height: 27px;
   padding: 0;
@@ -19,11 +20,11 @@ const SliderWrapper = styled.div`
 const Button = styled.button`
   font-family: 'T.C.SYSTEM';
   font-size: 18px;
-  line-height: 28px;
+  line-height: 24px;
   border: none;
   outline: none;
-  width: 53px;
-  height: 27px;
+  width: 51px;
+  height: 25px;
   color: ${props => props.theme.fill4};
   background-color: transparent;
   text-align: center;

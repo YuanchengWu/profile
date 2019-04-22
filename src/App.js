@@ -56,11 +56,13 @@ function App() {
                 <Route component={NoMatch} />
               </Switch>
             </PageContent>
-            <Footer>
-              {/* https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd */}
-              {/* <div>theme switch</div> */}
-              <LocaleSlider changeLanguage={setLanguage} />
-            </Footer>
+            {!showSplash && (
+              <Footer>
+                {/* https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd */}
+                {/* <div>theme switch</div> */}
+                <LocaleSlider changeLanguage={setLanguage} />
+              </Footer>
+            )}
           </Background>
         </>
       </IntlProvider>

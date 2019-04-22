@@ -7,7 +7,7 @@ import MenuItem from './MenuItem';
 import Description from '../components/Description';
 
 const MainWrapper = styled.div`
-  padding-bottom: 2.5rem;
+  /* padding-bottom: 2.5rem; */
 `;
 
 const Title = styled.h2`
