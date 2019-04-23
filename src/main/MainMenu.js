@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 
 import Splash from './Splash';
 import MenuItem from './MenuItem';
-import Description from '../components/Description';
 
 const MainWrapper = styled.div`
   /* padding-bottom: 2.5rem; */
@@ -28,28 +27,44 @@ const MenuItemList = styled.ul`
 `;
 
 export default function MainMenu({ showSplash, setShowSplash }) {
+  const [didMouseOver, setDidMouseOver] = useState(false);
+
   return (
     <MainWrapper>
       {showSplash && <Splash setShowSplash={setShowSplash} />}
       {!showSplash && (
-        <Title>
-          <FormattedMessage
-            id="main.title"
-            defaultMessage="Main Menu"
-            description="Main menu title text"
-          />
-        </Title>
+        <>
+          <Title>
+            <FormattedMessage
+              id="main.title"
+              defaultMessage="Main Menu"
+              description="Main menu title text"
+            />
+          </Title>
+          <MenuItemList>
+            <MenuItem
+              name="About"
+              mouseState={{ didMouseOver, setDidMouseOver }}
+            />
+            <MenuItem
+              name="Skills"
+              mouseState={{ didMouseOver, setDidMouseOver }}
+            />
+            <MenuItem
+              name="Projects"
+              mouseState={{ didMouseOver, setDidMouseOver }}
+            />
+            <MenuItem
+              name="Experience"
+              mouseState={{ didMouseOver, setDidMouseOver }}
+            />
+            <MenuItem
+              name="Contact"
+              mouseState={{ didMouseOver, setDidMouseOver }}
+            />
+          </MenuItemList>
+        </>
       )}
-      {!showSplash && (
-        <MenuItemList>
-          <MenuItem name="About" />
-          <MenuItem name="Skills" />
-          <MenuItem name="Projects" />
-          <MenuItem name="Experience" />
-          <MenuItem name="Contact" />
-        </MenuItemList>
-      )}
-      {!showSplash && <Description />}
     </MainWrapper>
   );
 }

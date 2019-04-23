@@ -5,7 +5,9 @@ import { injectIntl } from 'react-intl';
 const SliderWrapper = styled.div`
   border: 2px solid ${props => props.theme.fill6};
   box-sizing: border-box;
-  width: 106px;
+  flex: 1;
+  min-width: 106px;
+  max-width: 106px;
   height: 27px;
   padding: 0;
   background-color: transparent;

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
+
+import { DescriptionContext } from '../App';
 
 const Item = styled.a`
   font-family: 'T.C.SYSTEM';
@@ -23,17 +25,40 @@ const ListItem = styled.li`
   margin-bottom: 32px;
 `;
 
-export default function MenuItem(props) {
+function MenuItem({ name, href, mouseState, intl }) {
+  const { setDescription } = useContext(DescriptionContext);
+  const nameLower = name.toLowerCase();
+
+  // set default message before user interaction
+  if (!mouseState.didMouseOver) {
+    setDescription(intl.formatMessage({ id: 'description.main' }));
+  }
+
+  function handleMouseEnter() {
+    setDescription(intl.formatMessage({ id: `description.${nameLower}` }));
+    mouseState.setDidMouseOver(true);
+  }
+
+  function handleMouseLeave() {
+    setDescription(intl.formatMessage({ id: 'description.main' }));
+  }
+
   return (
     <ListItem>
-      <Item href={props.href}>
+      <Item
+        href={href}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <FormattedMessage
-          id={'main.' + props.name.toLowerCase()}
+          id={'main.' + nameLower}
           defaultMessage="{name}"
           description="Menu item text for {name}"
-          values={{ name: props.name }}
+          values={{ name }}
         />
       </Item>
     </ListItem>
   );
 }
+
+export default injectIntl(MenuItem);

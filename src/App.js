@@ -12,6 +12,7 @@ import { PageContent } from './layout/PageContent';
 import { Footer } from './layout/Footer';
 import { Background } from './layout/Background';
 import LocaleSlider from './components/LocaleSlider';
+import Description from './components/Description';
 
 import en from 'react-intl/locale-data/en';
 import zh from 'react-intl/locale-data/zh';
@@ -24,9 +25,13 @@ const messages = {
   zh: messagesZH
 };
 
+export const DescriptionContext = React.createContext('');
+
 function App() {
+  // TODO: add session variables to store theme and locale
   const [language, setLanguage] = useState('en');
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(false);
+  const [description, setDescription] = useState();
 
   return (
     // TODO: make theme switcher and use dynamic themes
@@ -39,30 +44,35 @@ function App() {
         <>
           <GlobalStyle />
           <Background>
-            <PageContent>
-              <Switch>
-                <Route
-                  exact
-                  path="/"
-                  render={props => (
-                    <MainMenu
-                      {...props}
-                      showSplash={showSplash}
-                      setShowSplash={setShowSplash}
-                    />
-                  )}
-                />
-                <Route path="/about" component={About} />
-                <Route component={NoMatch} />
-              </Switch>
-            </PageContent>
-            {!showSplash && (
-              <Footer>
-                {/* https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd */}
-                {/* <div>theme switch</div> */}
-                <LocaleSlider changeLanguage={setLanguage} />
-              </Footer>
-            )}
+            <DescriptionContext.Provider
+              value={{ description, setDescription }}
+            >
+              <PageContent>
+                <Switch>
+                  <Route
+                    exact
+                    path="/"
+                    render={props => (
+                      <MainMenu
+                        {...props}
+                        showSplash={showSplash}
+                        setShowSplash={setShowSplash}
+                      />
+                    )}
+                  />
+                  <Route path="/about" component={About} />
+                  <Route component={NoMatch} />
+                </Switch>
+              </PageContent>
+              {!showSplash && (
+                <Footer>
+                  {/* https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd */}
+                  {/* <div>theme switch</div> */}
+                  <Description />
+                  <LocaleSlider changeLanguage={setLanguage} />
+                </Footer>
+              )}
+            </DescriptionContext.Provider>
           </Background>
         </>
       </IntlProvider>

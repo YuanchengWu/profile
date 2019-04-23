@@ -6,5 +6,11 @@
   "main.skills": "Skills",
   "main.projects": "Projects",
   "main.experience": "Experience",
-  "main.contact": "Contact"
+  "main.contact": "Contact",
+  "description.main": "Select an item to continue",
+  "description.about": "about",
+  "description.skills": "skills",
+  "description.projects": "projects",
+  "description.experience": "experience",
+  "description.contact": "contact"
 }
