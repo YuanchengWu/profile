@@ -1,8 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { FormattedMessage, injectIntl } from 'react-intl';
-
-import { DescriptionContext } from '../App';
 
 const Item = styled.a`
   font-family: 'T.C.SYSTEM';
@@ -25,10 +23,7 @@ const ListItem = styled.li`
   margin-bottom: 32px;
 `;
 
-function MenuItem({ name, href, messageState, intl }) {
-  const { setDescription } = useContext(DescriptionContext);
-  const nameLower = name.toLowerCase();
-
+function MenuItem({ name, href, setDescription, messageState, intl }) {
   // set default message before user interaction
   if (!messageState.shownMessage) {
     setDescription(intl.formatMessage({ id: 'description.main' }));
@@ -36,7 +31,7 @@ function MenuItem({ name, href, messageState, intl }) {
   }
 
   function handleMouseEnter() {
-    setDescription(intl.formatMessage({ id: `description.${nameLower}` }));
+    setDescription(intl.formatMessage({ id: `description.${name}` }));
   }
 
   function handleMouseLeave() {
@@ -51,7 +46,7 @@ function MenuItem({ name, href, messageState, intl }) {
         onMouseLeave={handleMouseLeave}
       >
         <FormattedMessage
-          id={'main.' + nameLower}
+          id={'main.' + name}
           defaultMessage="{name}"
           description="Menu item text for {name}"
           values={{ name }}

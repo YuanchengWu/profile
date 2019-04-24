@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { injectIntl } from 'react-intl';
 import ReactResizeDetector from 'react-resize-detector';
 
-import { DescriptionContext } from '../App';
 import Typer from './Typer';
 
 const DescriptionWrapper = styled.div`
@@ -24,7 +23,7 @@ const Bar = styled.div`
   height: ${props => props.barHeight}px;
   max-height: 126px;
   width: 3px;
-  background-color: ${props => props.theme.fill6}
+  background-color: ${props => props.theme.fill6};
   box-shadow: 0 0 5px ${props => props.theme.fill3},
     0 0 10px ${props => props.theme.fill4},
     0 0 15px ${props => props.theme.fill5};
@@ -42,9 +41,8 @@ const Text = styled.div`
     0 0 15px ${props => props.theme.fill5};
 `;
 
-function Description({ intl }) {
+function Description({ description, intl }) {
   const [lineHeight, setLineHeight] = useState(0);
-  const { description } = useContext(DescriptionContext);
 
   const textRef = React.createRef();
 

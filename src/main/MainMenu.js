@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 
@@ -26,12 +26,12 @@ const MenuItemList = styled.ul`
   padding: 0;
 `;
 
-export default function MainMenu({ showSplash, setShowSplash }) {
+export default function MainMenu({
+  setDescription,
+  showSplash,
+  setShowSplash
+}) {
   const [shownMessage, setShownMessage] = useState(false);
-
-  useEffect(() => {
-    console.log('main menu reloaded');
-  });
 
   return (
     <MainWrapper>
@@ -46,26 +46,16 @@ export default function MainMenu({ showSplash, setShowSplash }) {
             />
           </Title>
           <MenuItemList>
-            <MenuItem
-              name="About"
-              messageState={{ shownMessage, setShownMessage }}
-            />
-            <MenuItem
-              name="Skills"
-              messageState={{ shownMessage, setShownMessage }}
-            />
-            <MenuItem
-              name="Projects"
-              messageState={{ shownMessage, setShownMessage }}
-            />
-            <MenuItem
-              name="Experience"
-              messageState={{ shownMessage, setShownMessage }}
-            />
-            <MenuItem
-              name="Contact"
-              messageState={{ shownMessage, setShownMessage }}
-            />
+            {['about', 'skills', 'projects', 'experience', 'contact'].map(
+              name => (
+                <MenuItem
+                  key={name}
+                  name={name}
+                  setDescription={setDescription}
+                  messageState={{ shownMessage, setShownMessage }}
+                />
+              )
+            )}
           </MenuItemList>
         </>
       )}
