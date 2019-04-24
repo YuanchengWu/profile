@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 
@@ -28,6 +28,10 @@ const MenuItemList = styled.ul`
 
 export default function MainMenu({ showSplash, setShowSplash }) {
   const [shownMessage, setShownMessage] = useState(false);
+
+  useEffect(() => {
+    console.log('main menu reloaded');
+  });
 
   return (
     <MainWrapper>

@@ -27,13 +27,13 @@ const SplashStyle = styled.div`
 function Splash({ intl, setShowSplash }) {
   const [startTyping, setStartTyping] = useState(false);
 
-  const typingDelay = 50;
+  const typingSpeed = 50;
   const splashDuration = 2;
   const splashSustain = 1.5;
   const text = intl.formatMessage({ id: 'splash.text' });
-  const cursor = intl.formatMessage({ id: 'splash.cursor' });
+  const cursor = intl.formatMessage({ id: 'text.cursor' });
   const fadeDelay =
-    splashDuration + (text.length * typingDelay) / 1000 + splashSustain;
+    splashDuration + (text.length * typingSpeed) / 1000 + splashSustain;
   // TODO: add pause after period
 
   if (!startTyping) {
@@ -48,7 +48,7 @@ function Splash({ intl, setShowSplash }) {
         text={text}
         cursor={cursor}
         startTyping={startTyping}
-        typingDelay={typingDelay}
+        typingSpeed={typingSpeed}
       />
     </SplashStyle>
   );

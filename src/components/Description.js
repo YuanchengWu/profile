@@ -1,5 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
+import { injectIntl } from 'react-intl';
+import ReactResizeDetector from 'react-resize-detector';
 
 import { DescriptionContext } from '../App';
 import Typer from './Typer';
@@ -20,6 +22,7 @@ const BarBackground = styled.div`
 
 const Bar = styled.div`
   height: ${props => props.barHeight}px;
+  max-height: 126px;
   width: 3px;
   background-color: ${props => props.theme.fill6}
   box-shadow: 0 0 5px ${props => props.theme.fill3},
@@ -28,7 +31,7 @@ const Bar = styled.div`
   transition: height 1s ease-out;
 `;
 
-const Text = styled.p`
+const Text = styled.div`
   font-family: 'Chakra Petch', sans-serif;
   font-size: 24px;
   line-height: 42px;
@@ -39,24 +42,15 @@ const Text = styled.p`
     0 0 15px ${props => props.theme.fill5};
 `;
 
-export default function Description() {
-  // eslint-disable-next-line
-  const [windowWidth, setWindowWidth] = useState();
-  const [lineHeight, setLineHeight] = useState(42);
+function Description({ intl }) {
+  const [lineHeight, setLineHeight] = useState(0);
   const { description } = useContext(DescriptionContext);
 
   const textRef = React.createRef();
 
-  useEffect(() => {
-    // Use height of text box for bar height
-    setLineHeight(textRef.current.offsetHeight);
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  });
-
-  function handleResize() {
-    return setWindowWidth(window.innerWidth);
+  // used for recalculating bar height when text wraps/unwraps on resize
+  function handleResize(width, height) {
+    return setLineHeight(height);
   }
 
   return (
@@ -65,10 +59,17 @@ export default function Description() {
         <Bar barHeight={lineHeight} />
       </BarBackground>
       <Text ref={textRef}>
+        <ReactResizeDetector handleHeight onResize={handleResize} />
         {description && (
-          <Typer fullText={description} typingSpeed={10} cursor="▌" />
+          <Typer
+            fullText={description}
+            typingSpeed={10}
+            cursor={intl.formatMessage({ id: 'text.cursor' })}
+          />
         )}
       </Text>
     </DescriptionWrapper>
   );
 }
+
+export default injectIntl(Description);

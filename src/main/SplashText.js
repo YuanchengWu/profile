@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+
+import Typer from '../components/Typer';
 
 const SplashTextWrapper = styled.h1`
   font-family: 'Chakra Petch', sans-serif;
@@ -16,22 +18,12 @@ const SplashTextWrapper = styled.h1`
 
 // let counter = 0;
 
-export default function SplashText({ text, cursor, startTyping, typingDelay }) {
-  const [typedText, setTypedText] = useState('');
-
-  // typing effect
-  if (startTyping && typedText.length <= text.length) {
-    // compensate for cursor character
-    const char =
-      typedText.length === 0
-        ? text.charAt(typedText.length)
-        : text.charAt(typedText.length - 1);
-    setTimeout(
-      () =>
-        setTypedText(typedText.slice(0, typedText.length - 1) + char + cursor),
-      typingDelay
-    );
-  }
-
-  return <SplashTextWrapper>{typedText}</SplashTextWrapper>;
+export default function SplashText({ text, cursor, startTyping, typingSpeed }) {
+  return (
+    <SplashTextWrapper>
+      {startTyping && (
+        <Typer fullText={text} typingSpeed={typingSpeed} cursor={cursor} />
+      )}
+    </SplashTextWrapper>
+  );
 }
