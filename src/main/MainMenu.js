@@ -27,7 +27,7 @@ const MenuItemList = styled.ul`
 `;
 
 export default function MainMenu({ showSplash, setShowSplash }) {
-  const [didMouseOver, setDidMouseOver] = useState(false);
+  const [shownMessage, setShownMessage] = useState(false);
 
   return (
     <MainWrapper>
@@ -44,23 +44,23 @@ export default function MainMenu({ showSplash, setShowSplash }) {
           <MenuItemList>
             <MenuItem
               name="About"
-              mouseState={{ didMouseOver, setDidMouseOver }}
+              messageState={{ shownMessage, setShownMessage }}
             />
             <MenuItem
               name="Skills"
-              mouseState={{ didMouseOver, setDidMouseOver }}
+              messageState={{ shownMessage, setShownMessage }}
             />
             <MenuItem
               name="Projects"
-              mouseState={{ didMouseOver, setDidMouseOver }}
+              messageState={{ shownMessage, setShownMessage }}
             />
             <MenuItem
               name="Experience"
-              mouseState={{ didMouseOver, setDidMouseOver }}
+              messageState={{ shownMessage, setShownMessage }}
             />
             <MenuItem
               name="Contact"
-              mouseState={{ didMouseOver, setDidMouseOver }}
+              messageState={{ shownMessage, setShownMessage }}
             />
           </MenuItemList>
         </>

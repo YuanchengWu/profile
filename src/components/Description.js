@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 
 import { DescriptionContext } from '../App';
+import Typer from './Typer';
 
 const DescriptionWrapper = styled.div`
   display: flex;
@@ -50,17 +51,24 @@ export default function Description() {
     // Use height of text box for bar height
     setLineHeight(textRef.current.offsetHeight);
 
-    const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   });
+
+  function handleResize() {
+    return setWindowWidth(window.innerWidth);
+  }
 
   return (
     <DescriptionWrapper>
       <BarBackground>
         <Bar barHeight={lineHeight} />
       </BarBackground>
-      <Text ref={textRef}>{description}</Text>
+      <Text ref={textRef}>
+        {description && (
+          <Typer fullText={description} typingSpeed={10} cursor="▌" />
+        )}
+      </Text>
     </DescriptionWrapper>
   );
 }

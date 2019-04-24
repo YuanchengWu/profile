@@ -8,9 +8,9 @@
   "main.experience": "Experience",
   "main.contact": "Contact",
   "description.main": "Select an item to continue",
-  "description.about": "about",
-  "description.skills": "skills",
-  "description.projects": "projects",
-  "description.experience": "experience",
-  "description.contact": "contact"
+  "description.about": "More about me",
+  "description.skills": "My technical skills",
+  "description.projects": "Past and ongoing projects",
+  "description.experience": "Professional experience so far",
+  "description.contact": "Get in touch!"
 }

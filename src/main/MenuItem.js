@@ -25,18 +25,18 @@ const ListItem = styled.li`
   margin-bottom: 32px;
 `;
 
-function MenuItem({ name, href, mouseState, intl }) {
+function MenuItem({ name, href, messageState, intl }) {
   const { setDescription } = useContext(DescriptionContext);
   const nameLower = name.toLowerCase();
 
   // set default message before user interaction
-  if (!mouseState.didMouseOver) {
+  if (!messageState.shownMessage) {
     setDescription(intl.formatMessage({ id: 'description.main' }));
+    messageState.setShownMessage(true);
   }
 
   function handleMouseEnter() {
     setDescription(intl.formatMessage({ id: `description.${nameLower}` }));
-    mouseState.setDidMouseOver(true);
   }
 
   function handleMouseLeave() {
