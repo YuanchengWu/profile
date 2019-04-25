@@ -1,11 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
-const Item = styled.a`
+import Typer from '../components/Typer';
+
+const StyledLink = styled(Link)`
   font-family: 'T.C.SYSTEM';
   font-size: 32px;
   text-transform: uppercase;
+  text-decoration: none;
   color: ${props => props.theme.fill4};
   text-shadow: 0 0 8px ${props => props.theme.fill3},
     0 0 16px ${props => props.theme.fill3};
@@ -23,13 +27,7 @@ const ListItem = styled.li`
   margin-bottom: 32px;
 `;
 
-function MenuItem({ name, href, setDescription, messageState, intl }) {
-  // set default message before user interaction
-  if (!messageState.shownMessage) {
-    setDescription(intl.formatMessage({ id: 'description.main' }));
-    messageState.setShownMessage(true);
-  }
-
+function MenuItem({ name, path, setDescription, intl }) {
   function handleMouseEnter() {
     setDescription(intl.formatMessage({ id: `description.${name}` }));
   }
@@ -40,18 +38,16 @@ function MenuItem({ name, href, setDescription, messageState, intl }) {
 
   return (
     <ListItem>
-      <Item
-        href={href}
+      <StyledLink
+        to={path}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <FormattedMessage
-          id={'main.' + name}
-          defaultMessage="{name}"
-          description="Menu item text for {name}"
-          values={{ name }}
+        <Typer
+          fullText={intl.formatMessage({ id: `main.${name}` })}
+          typingSpeed={25}
         />
-      </Item>
+      </StyledLink>
     </ListItem>
   );
 }

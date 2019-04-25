@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { FormattedMessage } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
 import Splash from './Splash';
 import MenuItem from './MenuItem';
+import Typer from '../components/Typer';
 
 const MainWrapper = styled.div`
   /* padding-bottom: 2.5rem; */
@@ -26,12 +27,11 @@ const MenuItemList = styled.ul`
   padding: 0;
 `;
 
-export default function MainMenu({
-  setDescription,
-  showSplash,
-  setShowSplash
-}) {
-  const [shownMessage, setShownMessage] = useState(false);
+function MainMenu({ setDescription, showSplash, setShowSplash, intl }) {
+  // set default message before user interaction
+  useEffect(() => {
+    setDescription(intl.formatMessage({ id: 'description.main' }));
+  }, []);
 
   return (
     <MainWrapper>
@@ -39,10 +39,9 @@ export default function MainMenu({
       {!showSplash && (
         <>
           <Title>
-            <FormattedMessage
-              id="main.title"
-              defaultMessage="Main Menu"
-              description="Main menu title text"
+            <Typer
+              fullText={intl.formatMessage({ id: 'main.title' })}
+              typingSpeed={25}
             />
           </Title>
           <MenuItemList>
@@ -51,8 +50,8 @@ export default function MainMenu({
                 <MenuItem
                   key={name}
                   name={name}
+                  path={`/${name}`}
                   setDescription={setDescription}
-                  messageState={{ shownMessage, setShownMessage }}
                 />
               )
             )}
@@ -62,3 +61,5 @@ export default function MainMenu({
     </MainWrapper>
   );
 }
+
+export default injectIntl(MainMenu);

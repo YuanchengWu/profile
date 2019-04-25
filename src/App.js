@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { IntlProvider, addLocaleData } from 'react-intl';
 
 import { GlobalStyle, themes } from './GlobalStyle';
+import { cookieService } from './services/cookieService';
 
 import MainMenu from './main/MainMenu';
 import About from './about/About';
@@ -27,8 +28,9 @@ const messages = {
 
 function App() {
   // TODO: add session variables to store theme and locale
-  const [language, setLanguage] = useState('en');
-  const [showSplash, setShowSplash] = useState(true);
+  const localeCookie = cookieService.getCookie('locale');
+  const [language, setLanguage] = useState(localeCookie ? localeCookie : 'en');
+  const [showSplash, setShowSplash] = useState(false);
   const [description, setDescription] = useState();
 
   return (
@@ -56,8 +58,17 @@ function App() {
                     />
                   )}
                 />
-                <Route path="/about" component={About} />
-                <Route component={NoMatch} />
+                <Route
+                  path="/about"
+                  render={props => (
+                    <About {...props} setDescription={setDescription} />
+                  )}
+                />
+                <Route
+                  render={props => (
+                    <NoMatch {...props} setDescription={setDescription} />
+                  )}
+                />
               </Switch>
             </PageContent>
             {!showSplash && (

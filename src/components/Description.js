@@ -45,6 +45,7 @@ function Description({ description, intl }) {
   const [lineHeight, setLineHeight] = useState(0);
 
   const textRef = React.createRef();
+  const locale = intl.locale;
 
   // used for recalculating bar height when text wraps/unwraps on resize
   function handleResize(width, height) {
@@ -61,7 +62,7 @@ function Description({ description, intl }) {
         {description && (
           <Typer
             fullText={description}
-            typingSpeed={10}
+            typingSpeed={locale === 'en' ? 10 : 30}
             cursor={intl.formatMessage({ id: 'text.cursor' })}
           />
         )}

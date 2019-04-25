@@ -6,5 +6,11 @@
   "main.skills": "技能",
   "main.projects": "项目",
   "main.experience": "经验",
-  "main.contact": "联系"
+  "main.contact": "联系",
+  "description.main": "选择一个项目以继续",
+  "description.about": "更多关于我",
+  "description.skills": "我的技术技能",
+  "description.projects": "过去和进行中的项目",
+  "description.experience": "迄今的专业经验",
+  "description.contact": "取得联系！"
 }

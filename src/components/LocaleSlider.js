@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { injectIntl } from 'react-intl';
 
+import { cookieService } from '../services/cookieService';
+
 const SliderWrapper = styled.div`
   border: 2px solid ${props => props.theme.fill6};
   box-sizing: border-box;
@@ -51,17 +53,21 @@ function LocaleSlider({ changeLanguage, intl }) {
   function isActiveLocale(locale) {
     return locale === intl.locale;
   }
+  function handleChangeLanguage(locale) {
+    cookieService.setCookie('locale', locale, 4000);
+    changeLanguage(locale);
+  }
   return (
     <SliderWrapper>
       <Button
         active={isActiveLocale('en')}
-        onClick={() => changeLanguage('en')}
+        onClick={() => handleChangeLanguage('en')}
       >
         EN
       </Button>
       <Button
         active={isActiveLocale('zh')}
-        onClick={() => changeLanguage('zh')}
+        onClick={() => handleChangeLanguage('zh')}
       >
         中
       </Button>
