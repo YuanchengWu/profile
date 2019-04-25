@@ -1,5 +1,15 @@
+import React from 'react';
 import styled from 'styled-components';
 
-export const PageContent = styled.main`
+const PageStyle = styled.main`
   flex: 1;
 `;
+
+const PageContent = React.memo(
+  props => {
+    return <PageStyle>{props.children}</PageStyle>;
+  },
+  () => true
+);
+
+export default PageContent;

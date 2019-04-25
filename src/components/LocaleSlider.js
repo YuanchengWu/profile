@@ -50,29 +50,29 @@ const Button = styled.button`
 `;
 
 function LocaleSlider({ changeLanguage, intl }) {
+  const buttons = [
+    { locale: 'en', name: 'EN' },
+    { locale: 'zh', name: '中' }
+  ].map(lang => (
+    <Button
+      key={lang.locale}
+      active={isActiveLocale(lang.locale)}
+      onClick={() => handleChangeLanguage(lang.locale)}
+    >
+      {lang.name}
+    </Button>
+  ));
+
   function isActiveLocale(locale) {
     return locale === intl.locale;
   }
+
   function handleChangeLanguage(locale) {
     cookieService.setCookie('locale', locale, 4000);
     changeLanguage(locale);
   }
-  return (
-    <SliderWrapper>
-      <Button
-        active={isActiveLocale('en')}
-        onClick={() => handleChangeLanguage('en')}
-      >
-        EN
-      </Button>
-      <Button
-        active={isActiveLocale('zh')}
-        onClick={() => handleChangeLanguage('zh')}
-      >
-        中
-      </Button>
-    </SliderWrapper>
-  );
+
+  return <SliderWrapper>{buttons}</SliderWrapper>;
 }
 
-export default injectIntl(LocaleSlider);
+export default injectIntl(React.memo(LocaleSlider, () => true));

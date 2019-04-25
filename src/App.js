@@ -9,7 +9,7 @@ import { cookieService } from './services/cookieService';
 import MainMenu from './main/MainMenu';
 import About from './about/About';
 import NoMatch from './404/NoMatch';
-import { PageContent } from './layout/PageContent';
+import PageContent from './layout/PageContent';
 import { Footer } from './layout/Footer';
 import { Background } from './layout/Background';
 import LocaleSlider from './components/LocaleSlider';
