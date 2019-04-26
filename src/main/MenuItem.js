@@ -29,7 +29,7 @@ const ListItem = styled.li`
 
 function MenuItem({ name, path, setDescription, intl }) {
   function handleMouseEnter() {
-    setDescription(intl.formatMessage({ id: `description.${name}` }));
+    setDescription(intl.formatMessage({ id: `description.main.${name}` }));
   }
 
   function handleMouseLeave() {

@@ -7,11 +7,10 @@ import { GlobalStyle, themes } from './GlobalStyle';
 import { cookieService } from './services/cookieService';
 
 import MainMenu from './main/MainMenu';
-import About from './about/About';
-import NoMatch from './404/NoMatch';
 import PageContent from './layout/PageContent';
 import { Footer } from './layout/Footer';
 import { Background } from './layout/Background';
+import DefaultPage from './layout/DefaultPage';
 import LocaleSlider from './components/LocaleSlider';
 import Description from './components/Description';
 
@@ -30,7 +29,7 @@ function App() {
   // TODO: add session variables to store theme and locale
   const localeCookie = cookieService.getCookie('locale');
   const [language, setLanguage] = useState(localeCookie ? localeCookie : 'en');
-  const [showSplash, setShowSplash] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
   const [description, setDescription] = useState();
 
   return (
@@ -44,7 +43,7 @@ function App() {
         <>
           <GlobalStyle />
           <Background>
-            <PageContent>
+            <PageContent showSplash={showSplash}>
               <Switch>
                 <Route
                   exact
@@ -59,14 +58,12 @@ function App() {
                   )}
                 />
                 <Route
-                  path="/about"
                   render={props => (
-                    <About {...props} setDescription={setDescription} />
-                  )}
-                />
-                <Route
-                  render={props => (
-                    <NoMatch {...props} setDescription={setDescription} />
+                    <DefaultPage
+                      {...props}
+                      setShowSplash={setShowSplash}
+                      setDescription={setDescription}
+                    />
                   )}
                 />
               </Switch>

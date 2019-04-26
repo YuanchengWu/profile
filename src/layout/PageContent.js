@@ -5,11 +5,12 @@ const PageStyle = styled.main`
   flex: 1;
 `;
 
-const PageContent = React.memo(
-  props => {
-    return <PageStyle>{props.children}</PageStyle>;
-  },
-  () => true
-);
+function PageContent(props) {
+  return <PageStyle>{props.children}</PageStyle>;
+}
 
-export default PageContent;
+function areEqual(prevProp, nextProp) {
+  return prevProp.showSplash === nextProp.showSplash;
+}
+
+export default React.memo(PageContent, areEqual);

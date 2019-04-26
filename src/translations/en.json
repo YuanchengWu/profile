@@ -7,10 +7,16 @@
   "main.projects": "Projects",
   "main.experience": "Experience",
   "main.contact": "Contact",
+  "nav.about": "About",
+  "nav.skills": "Skills",
+  "nav.projects": "Projects",
+  "nav.experience": "Experience",
+  "nav.contact": "Contact",
+  "description.default": "Select an item to show more information",
   "description.main": "Select an item to continue",
-  "description.about": "More about me",
-  "description.skills": "My technical skills",
-  "description.projects": "Past and ongoing projects",
-  "description.experience": "Professional experience so far",
-  "description.contact": "Get in touch!"
+  "description.main.about": "More about me",
+  "description.main.skills": "My technical skills",
+  "description.main.projects": "Past and ongoing projects",
+  "description.main.experience": "Professional experience so far",
+  "description.main.contact": "Get in touch!"
 }
