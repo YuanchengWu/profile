@@ -12,7 +12,7 @@ const StyledNavLink = styled(NavLink)`
   height: 1.4em;
   padding: 0.2em;
   margin: 0.2em;
-  color: ${props => props.theme.fill5};
+  color: ${props => props.theme.fill6};
   text-shadow: 0 0 8px ${props => props.theme.fill3},
     0 0 16px ${props => props.theme.fill3};
   border: 2px solid ${props => props.theme.fill6};
@@ -24,7 +24,6 @@ const StyledNavLink = styled(NavLink)`
     box-shadow: 0 0 5px ${props => props.theme.fill3},
       0 0 10px ${props => props.theme.fill4},
       0 0 15px ${props => props.theme.fill5};
-    color: ${props => props.theme.fill6};
     text-shadow: 0 0 5px ${props => props.theme.fill3},
       0 0 10px ${props => props.theme.fill4},
       0 0 15px ${props => props.theme.fill5};

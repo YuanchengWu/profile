@@ -38,7 +38,7 @@ const Button = styled.button`
 
   ${props =>
     props.active
-      ? `color: ${props.theme.fill1};
+      ? `color: ${props.theme.fill3};
     background-color: ${props.theme.fill6};
     text-shadow: none;`
       : `:hover {

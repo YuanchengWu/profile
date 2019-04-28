@@ -8,7 +8,6 @@ const SVG = styled.svg`
   filter: drop-shadow(0px 0px 1px ${props => props.theme.fill3})
     drop-shadow(0px 0px 2px ${props => props.theme.fill4})
     drop-shadow(0px 0px 4px ${props => props.theme.fill5});
-  will-change: transform, opacity;
 
   ${props =>
     props.animate &&
