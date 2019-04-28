@@ -2,12 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { injectIntl } from 'react-intl';
 
+import Map from './Map';
+
 const AboutStyles = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  margin: 0 7em;
-  overflow: scroll;
+  margin: 0 10%;
+  overflow: visible;
 `;
 
 const P = styled.p`
@@ -34,6 +36,7 @@ function About({ setDescription, intl }) {
         chop. Salami pastrami shank flank, pork ground round t-bone sausage pork
         chop landjaeger.
       </P>
+      <Map locale={intl.locale} />
     </AboutStyles>
   );
 }

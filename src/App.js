@@ -16,8 +16,8 @@ import Description from './components/Description';
 
 import en from 'react-intl/locale-data/en';
 import zh from 'react-intl/locale-data/zh';
-import messagesEN from './translations/en.json';
-import messagesZH from './translations/zh.json';
+import messagesEN from './i18n/en.json';
+import messagesZH from './i18n/zh.json';
 
 addLocaleData([...en, ...zh]);
 const messages = {

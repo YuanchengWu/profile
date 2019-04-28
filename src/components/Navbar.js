@@ -5,18 +5,17 @@ import { injectIntl } from 'react-intl';
 
 const StyledNavLink = styled(NavLink)`
   font-family: 'T.C.SYSTEM';
-  font-size: 32px;
+  font-size: 28px;
   text-transform: uppercase;
   text-decoration: none;
-  line-height: 1.2em;
-  height: 1.5em;
+  line-height: 1.1em;
+  height: 1.4em;
   padding: 0.2em;
-  margin: 2em 0.2em;
-  color: ${props => props.theme.fill4};
+  margin: 0.2em;
+  color: ${props => props.theme.fill5};
   text-shadow: 0 0 8px ${props => props.theme.fill3},
     0 0 16px ${props => props.theme.fill3};
   border: 2px solid ${props => props.theme.fill6};
-  box-sizing: border-box;
   box-shadow: 0 0 8px ${props => props.theme.fill3},
     0 0 16px ${props => props.theme.fill3};
   transition: box-shadow 0.2s ease;
@@ -33,7 +32,7 @@ const StyledNavLink = styled(NavLink)`
   }
 
   &.active {
-    color: ${props => props.theme.fill1};
+    color: ${props => props.theme.fill3};
     background-color: ${props => props.theme.fill6};
     text-shadow: none;
     box-shadow: 0 0 5px ${props => props.theme.fill3},

@@ -6,7 +6,6 @@ import { cookieService } from '../services/cookieService';
 
 const SliderWrapper = styled.div`
   border: 2px solid ${props => props.theme.fill6};
-  box-sizing: border-box;
   flex: 1;
   min-width: 106px;
   max-width: 106px;
@@ -24,11 +23,11 @@ const SliderWrapper = styled.div`
 const Button = styled.button`
   font-family: 'T.C.SYSTEM';
   font-size: 18px;
-  line-height: 24px;
+  line-height: 1.6em;
   border: none;
   outline: none;
   width: 51px;
-  height: 25px;
+  height: 100%;
   color: ${props => props.theme.fill4};
   background-color: transparent;
   text-align: center;
