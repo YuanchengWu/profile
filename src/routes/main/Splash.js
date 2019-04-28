@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components/macro';
 import { injectIntl } from 'react-intl';
 
-import Icon from '../components/Icon';
+import Icon from '../../components/Icon';
 import SplashText from './SplashText';
 
 const SplashStyle = styled.div`

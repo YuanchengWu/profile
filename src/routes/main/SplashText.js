@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Typer from '../components/Typer';
+import Typer from '../../components/Typer';
 
 const SplashTextWrapper = styled.h1`
   font-family: 'Chakra Petch', sans-serif;

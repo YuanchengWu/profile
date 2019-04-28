@@ -6,7 +6,7 @@ import { IntlProvider, addLocaleData } from 'react-intl';
 import { GlobalStyle, themes } from './GlobalStyle';
 import { cookieService } from './services/cookieService';
 
-import MainMenu from './main/MainMenu';
+import MainMenu from './routes/main/MainMenu';
 import PageContent from './layout/PageContent';
 import { Footer } from './layout/Footer';
 import { Background } from './layout/Background';

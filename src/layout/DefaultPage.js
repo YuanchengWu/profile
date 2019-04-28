@@ -4,8 +4,8 @@ import { injectIntl } from 'react-intl';
 
 import Header from './Header';
 
-import About from '../about/About';
-import NoMatch from '../404/NoMatch';
+import About from '../routes/about/About';
+import NoMatch from '../routes/404/NoMatch';
 import Navbar from '../components/Navbar';
 
 function DefaultPage({ setShowSplash, setDescription, intl }) {

@@ -4,7 +4,7 @@ import { injectIntl } from 'react-intl';
 
 import Splash from './Splash';
 import MenuItem from './MenuItem';
-import Typer from '../components/Typer';
+import Typer from '../../components/Typer';
 
 const MainWrapper = styled.div`
   /* padding-bottom: 2.5rem; */

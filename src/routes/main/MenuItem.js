@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { injectIntl } from 'react-intl';
 
-import Typer from '../components/Typer';
+import Typer from '../../components/Typer';
 
 const StyledLink = styled(Link)`
   font-family: 'T.C.SYSTEM';
