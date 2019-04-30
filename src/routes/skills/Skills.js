@@ -3,26 +3,32 @@ import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 
 import SkillItem from './SkillItem';
+import Paragraph from '../../components/Paragraph';
+
 import * as icons from '../../svgs/index';
 import { progLangList, libFmwList } from './skillList';
 
 const SkillsStyles = styled.div`
+  margin: 0 10%;
   display: flex;
   flex-direction: column;
-  align-items: center;
 `;
 
 const SkillColumns = styled.div`
+  margin: 0 -2em;
+  margin-bottom: 2em;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 const SkillColumn = styled.div`
-  margin: 2em;
+  margin: 0 2em;
   display: flex;
   flex-direction: column;
-  min-width: 40vw;
+  flex: 1;
+  /* max-width: 38vw; */
+  min-width: 450px;
 `;
 
 const ColumnTitle = styled.h4`
@@ -37,22 +43,19 @@ const ColumnTitle = styled.h4`
   margin-bottom: 16px;
 `;
 
-const progLanguages = progLangList.map(lang => getSkillItem(lang));
-
-const libFrameworks = libFmwList.map(lib => getSkillItem(lib));
-
-function getSkillItem(skill) {
+function getSkillItem(skill, setDescription) {
   return (
     <SkillItem
       key={skill.name}
       Icon={icons[skill.name]}
       skillName={skill.name}
       skillLevel={skill.level}
+      setDescription={setDescription}
     />
   );
 }
 
-export default function Skills() {
+export default function Skills({ setDescription }) {
   return (
     <SkillsStyles>
       <SkillColumns>
@@ -63,7 +66,7 @@ export default function Skills() {
               description="Programming languages column title"
             />
           </ColumnTitle>
-          {progLanguages}
+          {progLangList.map(lang => getSkillItem(lang, setDescription))}
         </SkillColumn>
         <SkillColumn>
           <ColumnTitle>
@@ -72,9 +75,13 @@ export default function Skills() {
               description="Libraries & frameworks column title"
             />
           </ColumnTitle>
-          {libFrameworks}
+          {libFmwList.map(lib => getSkillItem(lib, setDescription))}
         </SkillColumn>
       </SkillColumns>
+      <Paragraph
+        messageId="skills.paragraph"
+        messsageDescription="Skills page text"
+      />
     </SkillsStyles>
   );
 }

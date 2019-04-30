@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { injectIntl } from 'react-intl';
 
 const SkillItemStyles = styled.div`
   display: flex;
@@ -44,9 +45,22 @@ const SkillBarBackground = styled.div`
   margin-left: auto;
 `;
 
-export default function SkillItem({ Icon, skillName, skillLevel }) {
+function SkillItem({ Icon, skillName, skillLevel, setDescription, intl }) {
+  function handleMouseEnter() {
+    setDescription(
+      intl.formatMessage({ id: `description.skills.${skillName}` })
+    );
+  }
+
+  function handleMouseLeave() {
+    setDescription(intl.formatMessage({ id: 'description.default' }));
+  }
+
   return (
-    <SkillItemStyles>
+    <SkillItemStyles
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Icon />
       <SkillName>{skillName}</SkillName>
       <SkillBarBackground>
@@ -55,3 +69,5 @@ export default function SkillItem({ Icon, skillName, skillLevel }) {
     </SkillItemStyles>
   );
 }
+
+export default injectIntl(SkillItem);
