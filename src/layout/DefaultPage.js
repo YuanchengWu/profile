@@ -6,13 +6,13 @@ import Header from './Header';
 
 import About from '../routes/about/About';
 import Skills from '../routes/skills/Skills';
+import Projects from '../routes/projects/Projects';
 import NoMatch from '../routes/404/NoMatch';
 import Navbar from '../components/Navbar';
 
 function DefaultPage({ setShowSplash, setDescription, intl }) {
   useEffect(() => {
     setShowSplash(false);
-    setDescription(intl.formatMessage({ id: 'description.default' }));
   }, []);
   return (
     // TODO: put scroll fading here
@@ -29,6 +29,12 @@ function DefaultPage({ setShowSplash, setDescription, intl }) {
           path="/skills"
           render={props => (
             <Skills {...props} setDescription={setDescription} />
+          )}
+        />
+        <Route
+          path="/projects"
+          render={props => (
+            <Projects {...props} setDescription={setDescription} />
           )}
         />
         <Route

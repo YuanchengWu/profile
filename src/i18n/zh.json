@@ -16,6 +16,7 @@
   "nav.projects": "项目",
   "nav.experience": "经验",
   "nav.contact": "联系",
+  "alert.projects": "",
   "description.default": "选择一个项目以显示更多信息",
   "description.main": "选择一个项目以继续",
   "description.main.about": "更多关于我",
@@ -34,5 +35,6 @@
   "description.skills.Angular": "",
   "description.skills.MongoDB": "",
   "description.skills.Express": "",
-  "description.skills.NodeJS": ""
+  "description.skills.NodeJS": "",
+  "description.projects.default": ""
 }

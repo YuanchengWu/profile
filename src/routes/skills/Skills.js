@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 import SkillItem from './SkillItem';
 import Paragraph from '../../components/Paragraph';
@@ -8,7 +8,7 @@ import Paragraph from '../../components/Paragraph';
 import * as icons from '../../svgs/index';
 import { progLangList, libFmwList } from './skillList';
 
-const SkillsStyles = styled.div`
+const SkillsStyles = styled.section`
   margin: 0 10%;
   display: flex;
   flex-direction: column;
@@ -55,7 +55,11 @@ function getSkillItem(skill, setDescription) {
   );
 }
 
-export default function Skills({ setDescription }) {
+function Skills({ setDescription, intl }) {
+  useEffect(() => {
+    setDescription(intl.formatMessage({ id: 'description.default' }));
+  }, []);
+
   return (
     <SkillsStyles>
       <SkillColumns>
@@ -85,3 +89,5 @@ export default function Skills({ setDescription }) {
     </SkillsStyles>
   );
 }
+
+export default injectIntl(Skills);

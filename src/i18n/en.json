@@ -11,11 +11,13 @@
   "skills.column1": "[ Programming Languages ]",
   "skills.column2": "[ Libraries & Frameworks ]",
   "skills.paragraph": "Bacon ipsum dolor amet leberkas short ribs tongue beef ribs rump tri-tip, filet mignon bresaola spare ribs corned beef hamburger strip steak. Kevin hamburger shankle pancetta t-bone swine frankfurter. Short ribs picanha tongue porchetta pig sausage strip steak pork chop andouille bacon alcatra. Short loin t-bone ribeye fatback kevin ball tip tongue chicken. Leberkas ham turkey landjaeger sausage chicken meatloaf tongue porchetta salami strip steak pork loin flank pork belly pork chop. Salami pastrami shank flank, pork ground round t-bone sausage pork chop landjaeger.",
+  "projects.message": "For now, check out my ",
   "nav.about": "About",
   "nav.skills": "Skills",
   "nav.projects": "Projects",
   "nav.experience": "Experience",
   "nav.contact": "Contact",
+  "alert.projects": "I'm working on it!",
   "description.default": "Select an item to show more information",
   "description.main": "Select an item to continue",
   "description.main.about": "More about me",
@@ -34,5 +36,6 @@
   "description.skills.Angular": "",
   "description.skills.MongoDB": "",
   "description.skills.Express": "",
-  "description.skills.NodeJS": ""
+  "description.skills.NodeJS": "",
+  "description.projects.default": "This site is my current active front-end project!"
 }
