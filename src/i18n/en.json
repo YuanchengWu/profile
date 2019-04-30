@@ -18,6 +18,7 @@
   "nav.experience": "Experience",
   "nav.contact": "Contact",
   "alert.projects": "I'm working on it!",
+  "alert.404": "Invalid route. Redirecting in",
   "description.default": "Select an item to show more information",
   "description.main": "Select an item to continue",
   "description.main.about": "More about me",
@@ -37,5 +38,6 @@
   "description.skills.MongoDB": "",
   "description.skills.Express": "",
   "description.skills.NodeJS": "",
-  "description.projects.default": "This site is my current active front-end project!"
+  "description.projects.default": "This site is my current active front-end project!",
+  "description.404": "ERROR"
 }

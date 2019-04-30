@@ -24,8 +24,6 @@ export default class Typer extends Component {
   };
 
   componentDidMount() {
-    // const { delay } = this.props;
-    // delay ? setTimeout(this.handleTyping, delay) : this.handleTyping();
     this.handleTyping();
   }
 

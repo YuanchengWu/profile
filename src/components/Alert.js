@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { injectIntl } from 'react-intl';
 import styled from 'styled-components';
 
@@ -8,7 +8,6 @@ const AlertStyles = styled.div`
   justify-content: space-between;
   height: 9em;
   width: 25em;
-  padding: 2em;
   border: 2px solid ${props => props.theme.fill6};
   box-shadow: 0 0 8px ${props => props.theme.fill3},
     0 0 16px ${props => props.theme.fill3};
@@ -49,6 +48,7 @@ const AlertStyles = styled.div`
 
 const AlertIcon = styled.svg`
   height: 5em;
+  margin: 2em;
   fill: ${props => props.theme.fill6};
   filter: drop-shadow(0px 0px 8px ${props => props.theme.fill3})
     drop-shadow(0px 0px 16px ${props => props.theme.fill3});
@@ -63,13 +63,36 @@ const AlertMessage = styled.span`
     0 0 10px ${props => props.theme.fill4},
     0 0 15px ${props => props.theme.fill5};
   margin: 0 auto;
+  flex: 2;
 `;
 
-function Alert({ messageId, intl }) {
+function Alert({ messageId, countdown, timeout, intl }) {
   const [showMessage, setShowMessage] = useState(false);
+  const [count, setCount] = useState(timeout + 1);
+  const animationDuration = 800;
 
-  if (!showMessage) {
-    setTimeout(() => setShowMessage(true), 800);
+  useEffect(() => {
+    let countdownTimer;
+    let messageTimer;
+    if (countdown) {
+      countdownTimer = setTimeout(() => doCountdown(count), animationDuration);
+    }
+    if (!showMessage) {
+      messageTimer = setTimeout(() => setShowMessage(true), animationDuration);
+    }
+    return function cleanUp() {
+      clearTimeout(countdownTimer);
+      clearTimeout(messageTimer);
+    };
+  });
+
+  function doCountdown(c) {
+    if (c > 0) {
+      setCount(c - 1);
+    } else {
+      return;
+    }
+    setTimeout(doCountdown, 1000);
   }
 
   let translatedMessage = intl.formatMessage({ id: messageId });
@@ -79,7 +102,10 @@ function Alert({ messageId, intl }) {
       <AlertIcon viewBox="0 0 120 99" xmlns="http://www.w3.org/2000/svg">
         <path d="M60 0l60 99H0L60 0zm1.45 67.47V45.45H58.4v22.02h3.05zM58.4 76.6h3.05v-3.04H58.4v3.04z" />
       </AlertIcon>
-      <AlertMessage>{showMessage && translatedMessage}</AlertMessage>
+      <AlertMessage>
+        {showMessage && translatedMessage}{' '}
+        {showMessage && countdown && count + '...'}
+      </AlertMessage>
     </AlertStyles>
   );
 }
