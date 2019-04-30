@@ -39,5 +39,8 @@
   "description.skills.Express": "",
   "description.skills.NodeJS": "",
   "description.projects.default": "This site is my current active front-end project!",
+  "description.experience.default": "Select an icon to learn more about my role there",
+  "description.experience.Intel": "",
+  "description.experience.Infosys": "",
   "description.404": "ERROR"
 }
