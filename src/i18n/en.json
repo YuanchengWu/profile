@@ -12,6 +12,7 @@
   "skills.column2": "[ Libraries & Frameworks ]",
   "skills.paragraph": "Bacon ipsum dolor amet leberkas short ribs tongue beef ribs rump tri-tip, filet mignon bresaola spare ribs corned beef hamburger strip steak. Kevin hamburger shankle pancetta t-bone swine frankfurter. Short ribs picanha tongue porchetta pig sausage strip steak pork chop andouille bacon alcatra. Short loin t-bone ribeye fatback kevin ball tip tongue chicken. Leberkas ham turkey landjaeger sausage chicken meatloaf tongue porchetta salami strip steak pork loin flank pork belly pork chop. Salami pastrami shank flank, pork ground round t-bone sausage pork chop landjaeger.",
   "projects.message": "For now, check out my ",
+  "experience.title": "[ Technologies ]",
   "nav.about": "About",
   "nav.skills": "Skills",
   "nav.projects": "Projects",
@@ -42,5 +43,6 @@
   "description.experience.default": "Select an icon to learn more about my role there",
   "description.experience.Intel": "",
   "description.experience.Infosys": "",
+  "description.contact.default": "Reach me!",
   "description.404": "ERROR"
 }

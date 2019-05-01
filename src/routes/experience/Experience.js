@@ -2,16 +2,20 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { injectIntl } from 'react-intl';
 
+import ExperienceItem from './ExperienceItem';
 import Intel from '../../svgs/Intel';
 import Infosys from '../../svgs/Infosys';
+import Python from '../../svgs/Python';
+import Angular from '../../svgs/Angular';
+import ReactJS from '../../svgs/React';
+import Redux from '../../svgs/Redux';
 
 const ExperienceStyles = styled.section`
   margin: 0 10%;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
-  margin: auto 0;
 `;
 
 function Experience({ setDescription, intl }) {
@@ -22,8 +26,13 @@ function Experience({ setDescription, intl }) {
   }, []);
   return (
     <ExperienceStyles>
-      <Intel setDescription={setDescription} />
-      <Infosys setDescription={setDescription} />
+      <ExperienceItem Icon={Intel} setDescription={setDescription}>
+        <Python />
+      </ExperienceItem>
+      <ExperienceItem Icon={Infosys} setDescription={setDescription}>
+        <Angular />
+        <ReactJS /> <Redux />
+      </ExperienceItem>
     </ExperienceStyles>
   );
 }

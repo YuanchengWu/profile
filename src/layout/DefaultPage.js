@@ -8,6 +8,7 @@ import About from '../routes/about/About';
 import Skills from '../routes/skills/Skills';
 import Projects from '../routes/projects/Projects';
 import Experience from '../routes/experience/Experience';
+import Contact from '../routes/contact/Contact';
 import NoMatch from '../routes/404/NoMatch';
 import Navbar from '../components/Navbar';
 
@@ -42,6 +43,12 @@ function DefaultPage({ setShowSplash, setDescription, intl }) {
           path="/experience"
           render={props => (
             <Experience {...props} setDescription={setDescription} />
+          )}
+        />
+        <Route
+          path="/contact"
+          render={props => (
+            <Contact {...props} setDescription={setDescription} />
           )}
         />
         <Route

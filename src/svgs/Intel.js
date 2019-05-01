@@ -3,7 +3,7 @@ import { injectIntl } from 'react-intl';
 import styled from 'styled-components';
 
 const SVG = styled.svg`
-  min-width: 50px;
+  min-width: 185px;
   height: 100px;
   margin: 1em;
   fill: ${props => props.theme.fill6};
