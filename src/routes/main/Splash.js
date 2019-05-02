@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { injectIntl } from 'react-intl';
 
-import Icon from '../../components/Icon';
+import Icon from './Icon';
 import SplashText from './SplashText';
 
 const SplashStyle = styled.div`
+  margin: 0 10%;
+  display: flex;
   height: 100vh;
   justify-content: center;
   align-items: center;
   align-content: center;
-  display: flex;
   flex-wrap: wrap;
   animation: fade 1s linear ${props => props.fadeDelay}s 1 normal forwards;
 
@@ -36,10 +37,23 @@ function Splash({ intl, setShowSplash }) {
     splashDuration + (text.length * typingSpeed) / 1000 + splashSustain;
   // TODO: add pause after period
 
-  if (!startTyping) {
-    setTimeout(() => setStartTyping(true), splashDuration * 1000);
-    setTimeout(() => setShowSplash(false), (fadeDelay + splashSustain) * 1000);
-  }
+  useEffect(() => {
+    let typingTimer, splashTimer;
+    if (!startTyping) {
+      typingTimer = setTimeout(
+        () => setStartTyping(true),
+        splashDuration * 1000
+      );
+      splashTimer = setTimeout(
+        () => setShowSplash(false),
+        (fadeDelay + splashSustain) * 1000
+      );
+    }
+    return function cleanUp() {
+      clearTimeout(typingTimer);
+      clearTimeout(splashTimer);
+    };
+  }, []);
 
   return (
     <SplashStyle fadeDelay={fadeDelay}>

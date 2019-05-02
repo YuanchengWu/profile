@@ -11,7 +11,7 @@ import ReactJS from '../../svgs/React';
 import Redux from '../../svgs/Redux';
 
 const ExperienceStyles = styled.section`
-  margin: 0 10%;
+  margin: auto 10%;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;

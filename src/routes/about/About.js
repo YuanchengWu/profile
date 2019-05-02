@@ -9,7 +9,7 @@ const AboutStyles = styled.section`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  margin: 0 10%;
+  margin: auto 10%;
   overflow: visible;
 `;
 

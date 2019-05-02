@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { IntlProvider, addLocaleData } from 'react-intl';
 
@@ -7,6 +7,7 @@ import { GlobalStyle, themes } from './GlobalStyle';
 import { cookieService } from './services/cookieService';
 
 import MainMenu from './routes/main/MainMenu';
+import Info from './routes/info/Info';
 import PageContent from './layout/PageContent';
 import { Footer } from './layout/Footer';
 import { Background } from './layout/Background';
@@ -25,7 +26,7 @@ const messages = {
   zh: messagesZH
 };
 
-function App() {
+function App({ location }) {
   // TODO: add session variables to store theme and locale
   const localeCookie = cookieService.getCookie('locale');
   const [language, setLanguage] = useState(localeCookie ? localeCookie : 'en');
@@ -58,6 +59,10 @@ function App() {
                   )}
                 />
                 <Route
+                  path="/info"
+                  render={props => <Info setShowSplash={setShowSplash} />}
+                />
+                <Route
                   render={props => (
                     <DefaultPage
                       {...props}
@@ -72,7 +77,9 @@ function App() {
               <Footer>
                 {/* https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd */}
                 {/* <div>theme switch</div> */}
-                <Description description={description} />
+                {location.pathname !== '/info' && (
+                  <Description description={description} />
+                )}
                 <LocaleSlider changeLanguage={setLanguage} />
               </Footer>
             )}
@@ -83,4 +90,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);

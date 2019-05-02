@@ -7,8 +7,7 @@ const Blinking = styled.span`
 
   @keyframes blink {
     to {
-      color: transparent;
-      text-shadow: none;
+      opacity: 0;
     }
   }
 `;
@@ -36,6 +35,10 @@ export default class Typer extends Component {
     }
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.typerTimer);
+  }
+
   handleTyping = () => {
     const text = this.state.text;
     const { fullText, typingSpeed } = this.props;
@@ -44,7 +47,7 @@ export default class Typer extends Component {
     } else {
       return;
     }
-    setTimeout(this.handleTyping, typingSpeed);
+    this.typerTimer = setTimeout(this.handleTyping, typingSpeed);
   };
 
   render() {

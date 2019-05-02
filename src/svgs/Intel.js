@@ -6,6 +6,7 @@ const SVG = styled.svg`
   min-width: 185px;
   height: 100px;
   margin: 1em;
+  padding-bottom: 1em;
   fill: ${props => props.theme.fill6};
   filter: drop-shadow(0px 0px 8px ${props => props.theme.fill3})
     drop-shadow(0px 0px 16px ${props => props.theme.fill3});

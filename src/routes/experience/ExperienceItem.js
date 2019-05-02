@@ -20,6 +20,7 @@ const fadeIn = keyframes`
 
 const Technologies = styled.div`
   margin-left: 1em;
+  height: 80px;
 `;
 
 const TechnologiesTitle = styled.h4`
@@ -60,17 +61,19 @@ function ExperienceItem({ Icon, setDescription, children, intl }) {
       onMouseLeave={handleMouseLeave}
     >
       <Icon setDescription={setDescription} />
-      {isHovering && (
-        <Technologies>
-          <TechnologiesTitle>
-            <Typer
-              fullText={intl.formatMessage({ id: 'experience.title' })}
-              typingSpeed={10}
-            />
-          </TechnologiesTitle>
-          <TechnologyIcons>{children}</TechnologyIcons>
-        </Technologies>
-      )}
+      <Technologies>
+        {isHovering && (
+          <>
+            <TechnologiesTitle>
+              <Typer
+                fullText={intl.formatMessage({ id: 'experience.title' })}
+                typingSpeed={10}
+              />
+            </TechnologiesTitle>
+            <TechnologyIcons>{children}</TechnologyIcons>
+          </>
+        )}
+      </Technologies>
     </ExperienceItemStyles>
   );
 }

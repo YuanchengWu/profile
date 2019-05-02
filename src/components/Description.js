@@ -7,6 +7,7 @@ import Typer from './Typer';
 
 const DescriptionWrapper = styled.div`
   display: flex;
+  flex: 1;
   margin-left: 2em;
   align-items: flex-start;
 `;
@@ -34,6 +35,7 @@ const Text = styled.div`
   font-family: 'Chakra Petch', sans-serif;
   font-size: 24px;
   line-height: 42px;
+  white-space: pre-wrap;
   margin: 0 32px;
   color: ${props => props.theme.fill6};
   text-shadow: 0 0 5px ${props => props.theme.fill3},

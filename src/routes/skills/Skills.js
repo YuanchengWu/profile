@@ -9,7 +9,7 @@ import * as icons from '../../svgs/index';
 import { progLangList, libFmwList } from './skillList';
 
 const SkillsStyles = styled.section`
-  margin: 0 10%;
+  margin: auto 10%;
   display: flex;
   flex-direction: column;
 `;
