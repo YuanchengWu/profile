@@ -13,6 +13,16 @@ const ContactStyles = styled.section`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-evenly;
+  animation: fade-in 0.5s;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 const ContactContainer = styled.div`
@@ -31,6 +41,14 @@ const ContactTitle = styled.h4`
     0 0 15px ${props => props.theme.fill5};
   text-transform: uppercase;
   margin-bottom: 16px;
+
+  &:before {
+    content: '[ ';
+  }
+
+  &:after {
+    content: ' ]';
+  }
 `;
 
 function Contact({ setDescription, intl }) {
@@ -42,7 +60,7 @@ function Contact({ setDescription, intl }) {
     <ContactStyles>
       <ContactContainer>
         <ContactTitle>
-          {intl.formatMessage({ id: 'experience.LinkedIn' })}
+          {intl.formatMessage({ id: 'contact.LinkedIn' })}
         </ContactTitle>
         <a href="https://www.linkedin.com/in/yuancheng-wu/" target="_">
           <LinkedIn setDescription={setDescription} />
@@ -50,7 +68,7 @@ function Contact({ setDescription, intl }) {
       </ContactContainer>
       <ContactContainer>
         <ContactTitle>
-          {intl.formatMessage({ id: 'experience.GitHub' })}
+          {intl.formatMessage({ id: 'contact.GitHub' })}
         </ContactTitle>
         <a href="https://github.com/YuanchengWu" target="_">
           <GitHub setDescription={setDescription} />
@@ -58,7 +76,7 @@ function Contact({ setDescription, intl }) {
       </ContactContainer>
       <ContactContainer>
         <ContactTitle>
-          {intl.formatMessage({ id: 'experience.Blog' })}
+          {intl.formatMessage({ id: 'contact.Blog' })}
         </ContactTitle>
         <a href="https://codegallop.wordpress.com/" target="_">
           <Blog setDescription={setDescription} />
@@ -66,7 +84,7 @@ function Contact({ setDescription, intl }) {
       </ContactContainer>
       <ContactContainer>
         <ContactTitle>
-          {intl.formatMessage({ id: 'experience.Email' })}
+          {intl.formatMessage({ id: 'contact.Email' })}
         </ContactTitle>
         <a href="mailto:yuanchengwu11@gmail.com">
           <Mail setDescription={setDescription} />

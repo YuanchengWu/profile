@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Header = styled.header`
   display: flex;
   flex-wrap: wrap;
-  margin: 3em;
+  margin: 3em auto;
   justify-content: center;
 `;
 

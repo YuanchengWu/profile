@@ -4,11 +4,6 @@ import { injectIntl } from 'react-intl';
 
 import Typer from '../../components/Typer';
 
-const ExperienceItemStyles = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -16,6 +11,12 @@ const fadeIn = keyframes`
   to {
     opacity: 1;
   }
+`;
+
+const ExperienceItemStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  animation: ${fadeIn} 0.5s;
 `;
 
 const Technologies = styled.div`
@@ -33,6 +34,14 @@ const TechnologiesTitle = styled.h4`
     0 0 15px ${props => props.theme.fill5};
   text-transform: uppercase;
   margin-bottom: 16px;
+
+  &:before {
+    content: '[ ';
+  }
+
+  &:after {
+    content: ' ]';
+  }
 `;
 
 const TechnologyIcons = styled.div`

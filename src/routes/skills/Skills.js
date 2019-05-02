@@ -41,6 +41,14 @@ const ColumnTitle = styled.h4`
     0 0 15px ${props => props.theme.fill5};
   text-transform: uppercase;
   margin-bottom: 16px;
+
+  &:before {
+    content: '[ ';
+  }
+
+  &:after {
+    content: ' ]';
+  }
 `;
 
 function getSkillItem(skill, setDescription) {
