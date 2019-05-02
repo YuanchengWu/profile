@@ -39,7 +39,7 @@ const A = styled.a`
 function Projects({ setDescription, intl }) {
   useEffect(() => {
     setDescription(intl.formatMessage({ id: 'description.projects.default' }));
-  }, []);
+  });
 
   return (
     <ProjectsStyles>

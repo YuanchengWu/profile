@@ -36,7 +36,8 @@ const ContactTitle = styled.h4`
 function Contact({ setDescription, intl }) {
   useEffect(() => {
     setDescription(intl.formatMessage({ id: 'description.contact.default' }));
-  }, []);
+  });
+
   return (
     <ContactStyles>
       <ContactContainer>

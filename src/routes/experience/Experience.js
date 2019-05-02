@@ -23,7 +23,8 @@ function Experience({ setDescription, intl }) {
     setDescription(
       intl.formatMessage({ id: 'description.experience.default' })
     );
-  }, []);
+  });
+
   return (
     <ExperienceStyles>
       <ExperienceItem Icon={Intel} setDescription={setDescription}>

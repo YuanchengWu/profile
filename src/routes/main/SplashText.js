@@ -8,7 +8,7 @@ const SplashTextWrapper = styled.h1`
   font-size: 48px;
   font-weight: normal;
   white-space: pre-wrap;
-  width: 45vw;
+  width: 50vw;
   margin: 0;
   color: ${props => props.theme.fill6};
   text-shadow: 0 0 5px ${props => props.theme.fill3},

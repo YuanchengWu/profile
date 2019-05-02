@@ -38,22 +38,20 @@ function Splash({ intl, setShowSplash }) {
   // TODO: add pause after period
 
   useEffect(() => {
-    let typingTimer, splashTimer;
     if (!startTyping) {
-      typingTimer = setTimeout(
+      const typingTimer = setTimeout(
         () => setStartTyping(true),
         splashDuration * 1000
       );
-      splashTimer = setTimeout(
+      setTimeout(
         () => setShowSplash(false),
         (fadeDelay + splashSustain) * 1000
       );
+      return function cleanUp() {
+        clearTimeout(typingTimer);
+      };
     }
-    return function cleanUp() {
-      clearTimeout(typingTimer);
-      clearTimeout(splashTimer);
-    };
-  }, []);
+  });
 
   return (
     <SplashStyle fadeDelay={fadeDelay}>

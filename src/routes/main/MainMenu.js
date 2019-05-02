@@ -51,7 +51,7 @@ function MainMenu({ setDescription, showSplash, setShowSplash, intl }) {
   // set default message before user interaction
   useEffect(() => {
     setDescription(intl.formatMessage({ id: 'description.main' }));
-  }, []);
+  });
 
   function handleMouseEnter() {
     setDescription(intl.formatMessage({ id: 'description.main.info' }));

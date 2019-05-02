@@ -58,7 +58,7 @@ function getSkillItem(skill, setDescription) {
 function Skills({ setDescription, intl }) {
   useEffect(() => {
     setDescription(intl.formatMessage({ id: 'description.default' }));
-  }, []);
+  });
 
   return (
     <SkillsStyles>

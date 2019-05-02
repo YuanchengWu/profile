@@ -15,7 +15,7 @@ import Navbar from '../components/Navbar';
 function DefaultPage({ setShowSplash, setDescription, intl }) {
   useEffect(() => {
     setShowSplash(false);
-  }, []);
+  });
 
   return (
     // TODO: put scroll fading here

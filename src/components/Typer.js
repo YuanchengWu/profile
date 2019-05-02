@@ -28,6 +28,7 @@ export default class Typer extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.fullText !== prevProps.fullText) {
+      clearTimeout(this.typerTimer);
       this.setState({ text: '' });
     }
     if (this.state.text === '') {

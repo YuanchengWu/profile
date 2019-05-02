@@ -16,7 +16,8 @@ const AboutStyles = styled.section`
 function About({ setDescription, intl }) {
   useEffect(() => {
     setDescription(intl.formatMessage({ id: 'description.default' }));
-  }, []);
+  });
+
   return (
     <AboutStyles>
       <Paragraph
