@@ -32,7 +32,7 @@ const ContactContainer = styled.div`
 `;
 
 const ContactTitle = styled.h4`
-  font-family: 'T.C.SYSTEM';
+  font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 16px;
   font-weight: normal;
   color: ${props => props.theme.fill6};

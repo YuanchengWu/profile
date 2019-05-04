@@ -49,6 +49,7 @@ function Projects({ setDescription, intl }) {
           id="projects.message"
           description="A note about projects in progress."
         />
+        <span> </span>
         <A href="https://github.com/YuanchengWu" target="_">
           GitHub
         </A>

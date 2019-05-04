@@ -13,7 +13,7 @@ const MainWrapper = styled.div`
 `;
 
 const Title = styled.h2`
-  font-family: 'T.C.SYSTEM';
+  font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 32px;
   font-weight: normal;
   color: ${props => props.theme.fill6};

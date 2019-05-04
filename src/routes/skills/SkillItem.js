@@ -6,10 +6,14 @@ const SkillItemStyles = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 1.5em;
+
+  &:hover {
+    filter: drop-shadow(0px 0px 1px ${props => props.theme.fill4});
+  }
 `;
 
 const SkillName = styled.h3`
-  font-family: 'T.C.SYSTEM';
+  font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 22px;
   font-weight: normal;
   color: ${props => props.theme.fill6};

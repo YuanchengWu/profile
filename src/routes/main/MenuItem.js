@@ -6,7 +6,7 @@ import { injectIntl } from 'react-intl';
 import Typer from '../../components/Typer';
 
 const StyledLink = styled(Link)`
-  font-family: 'T.C.SYSTEM';
+  font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 32px;
   text-transform: uppercase;
   text-decoration: none;

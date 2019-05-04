@@ -21,7 +21,7 @@ const SliderWrapper = styled.div`
 `;
 
 const Button = styled.button`
-  font-family: 'T.C.SYSTEM';
+  font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 18px;
   line-height: 1.6em;
   border: none;

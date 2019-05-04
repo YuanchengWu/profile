@@ -25,14 +25,14 @@ const Article = styled.article`
 `;
 
 const H1 = styled.h1`
-  font-family: 'T.C.SYSTEM';
+  font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 3em;
   font-weight: normal;
   text-transform: uppercase;
 `;
 
 const H2 = styled.h2`
-  font-family: 'T.C.SYSTEM';
+  font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 2em;
   font-weight: normal;
   text-transform: uppercase;
@@ -40,7 +40,7 @@ const H2 = styled.h2`
 `;
 
 const H3 = styled.h2`
-  font-family: 'T.C.SYSTEM';
+  font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 0.8em;
   font-weight: normal;
   text-transform: uppercase;
@@ -187,6 +187,29 @@ export default function Info({ setShowSplash }) {
                   target="_blank"
                 >
                   repo
+                </A>
+              )
+            }}
+          />
+        </P>
+        <H2>
+          <FormattedMessage id="info.credits.title" />
+        </H2>
+        <H3>
+          <FormattedMessage id="info.credits.subtitle" />
+        </H3>
+        <P>
+          <FormattedMessage
+            id="info.credits.subtitle.p1"
+            values={{
+              email: (
+                <A href="mailto:minjeekim1128@gmail.com" target="_blank">
+                  email
+                </A>
+              ),
+              LinkedIn: (
+                <A href="http://linkedin.com/in/minjeekim1128" target="_blank">
+                  LinkedIn
                 </A>
               )
             }}

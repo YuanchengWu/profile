@@ -25,7 +25,7 @@ const Technologies = styled.div`
 `;
 
 const TechnologiesTitle = styled.h4`
-  font-family: 'T.C.SYSTEM';
+  font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 16px;
   font-weight: normal;
   color: ${props => props.theme.fill6};

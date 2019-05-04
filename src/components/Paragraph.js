@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 const P = styled.p`
   font-family: 'Chakra Petch', sans-serif;
   font-size: 16px;
-  margin: 0;
+  margin-top: 0.5em;
   color: ${props => props.theme.fill6};
   text-shadow: 0 0 5px ${props => props.theme.fill3},
     0 0 10px ${props => props.theme.fill4},

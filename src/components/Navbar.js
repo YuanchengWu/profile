@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { injectIntl } from 'react-intl';
 
 const StyledNavLink = styled(NavLink)`
-  font-family: 'T.C.SYSTEM';
+  font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 28px;
   text-transform: uppercase;
   text-decoration: none;
