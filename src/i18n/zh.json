@@ -72,7 +72,7 @@
   "description.projects.default": "这个网站是我目前活跃的前端项目！",
   "description.experience.default": "选择一个图标以了解有关我在那里的角色的更多信息",
   "description.experience.Intel": "实习生 | 2016年6月 - 12月\n使用GUI库wxPython开发了一个桌面应用程序，这是一个Python封装的C++库wxWidgets",
-  "description.experience.Infosys": "助理| 2017年7月 - 至今\n使用了AngularJS，目前正在使用带有Java服务器后端的React和Redux项目",
+  "description.experience.Infosys": "助理 | 2017年7月 - 至今\n使用了AngularJS，目前正在使用带有Java服务器后端的React和Redux项目",
   "description.contact.default": "联系我！",
   "description.contact.LinkedIn": "我们联系吧！",
   "description.contact.GitHub": "看看我的作品（目前不多）并协作",
