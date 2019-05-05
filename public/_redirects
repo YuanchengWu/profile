@@ -1,2 +1,4 @@
-https://fullgallop.netlify.com/* https://fullgallop.me/:splat 301!
+# Redirect Netlify default domain to primary custom domain
+https://fullgallop.netlify.com/* https://fullgallop.me/:splat     301!
+# Use React Router instead of Netlify routing
 /*                               /index.html                      200

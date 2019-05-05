@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
 
+import { withTracker } from '../withTracker';
 import Header from './Header';
 
 import About from '../routes/about/About';
@@ -11,6 +12,13 @@ import Experience from '../routes/experience/Experience';
 import Contact from '../routes/contact/Contact';
 import NoMatch from '../routes/404/NoMatch';
 import Navbar from '../components/Navbar';
+
+const TrackedAbout = withTracker(About);
+const TrackedSkills = withTracker(Skills);
+const TrackedProjects = withTracker(Projects);
+const TrackedExperience = withTracker(Experience);
+const TrackedContact = withTracker(Contact);
+const TrackedNoMatch = withTracker(NoMatch);
 
 function DefaultPage({ setShowSplash, setDescription, intl }) {
   useEffect(() => {
@@ -26,35 +34,37 @@ function DefaultPage({ setShowSplash, setDescription, intl }) {
       <Switch>
         <Route
           path="/about"
-          render={props => <About {...props} setDescription={setDescription} />}
+          render={props => (
+            <TrackedAbout {...props} setDescription={setDescription} />
+          )}
         />
         <Route
           path="/skills"
           render={props => (
-            <Skills {...props} setDescription={setDescription} />
+            <TrackedSkills {...props} setDescription={setDescription} />
           )}
         />
         <Route
           path="/projects"
           render={props => (
-            <Projects {...props} setDescription={setDescription} />
+            <TrackedProjects {...props} setDescription={setDescription} />
           )}
         />
         <Route
           path="/experience"
           render={props => (
-            <Experience {...props} setDescription={setDescription} />
+            <TrackedExperience {...props} setDescription={setDescription} />
           )}
         />
         <Route
           path="/contact"
           render={props => (
-            <Contact {...props} setDescription={setDescription} />
+            <TrackedContact {...props} setDescription={setDescription} />
           )}
         />
         <Route
           render={props => (
-            <NoMatch {...props} setDescription={setDescription} />
+            <TrackedNoMatch {...props} setDescription={setDescription} />
           )}
         />
       </Switch>

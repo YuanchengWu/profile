@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { injectIntl } from 'react-intl';
+import ReactGA from 'react-ga';
 
 import { cookieService } from '../services/cookieService';
 
@@ -68,6 +69,10 @@ function LocaleSlider({ changeLanguage, intl }) {
 
   function handleChangeLanguage(locale) {
     cookieService.setCookie('locale', locale, 4000);
+    ReactGA.event({
+      category: 'Language',
+      action: 'Language Changed to ' + locale
+    });
     changeLanguage(locale);
   }
 

@@ -5,6 +5,7 @@ import { IntlProvider, addLocaleData } from 'react-intl';
 
 import { GlobalStyle, themes } from './GlobalStyle';
 import { cookieService } from './services/cookieService';
+import { withTracker } from './withTracker';
 
 import MainMenu from './routes/main/MainMenu';
 import Info from './routes/info/Info';
@@ -25,6 +26,9 @@ const messages = {
   en: messagesEN,
   zh: messagesZH
 };
+
+const TrackedMainMenu = withTracker(MainMenu);
+const TrackedInfo = withTracker(Info);
 
 function App({ location }) {
   // TODO: add session variables to store theme and locale
@@ -50,7 +54,7 @@ function App({ location }) {
                   exact
                   path="/"
                   render={props => (
-                    <MainMenu
+                    <TrackedMainMenu
                       {...props}
                       showSplash={showSplash}
                       setShowSplash={setShowSplash}
@@ -60,7 +64,9 @@ function App({ location }) {
                 />
                 <Route
                   path="/info"
-                  render={props => <Info setShowSplash={setShowSplash} />}
+                  render={props => (
+                    <TrackedInfo {...props} setShowSplash={setShowSplash} />
+                  )}
                 />
                 <Route
                   render={props => (
