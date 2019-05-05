@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2234c176-71de-4986-94b6-b8c2d8ab20ef/deploy-status)](https://app.netlify.com/sites/fullgallop/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 The site is now live! Check it out at [fullgallop.me](https://fullgallop.me/).
