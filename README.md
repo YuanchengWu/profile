@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+The site is now live! Check it out at [fullgallop.me](https://fullgallop.me/).
+
 ## Available Scripts
 
 In the project directory, you can run:
