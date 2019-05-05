@@ -86,7 +86,7 @@ function Contact({ setDescription, intl }) {
         <ContactTitle>
           {intl.formatMessage({ id: 'contact.Email' })}
         </ContactTitle>
-        <a href="mailto:yuanchengwu11@gmail.com">
+        <a href="mailto:john.wu@fullgallop.me">
           <Mail setDescription={setDescription} />
         </a>
       </ContactContainer>
