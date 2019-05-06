@@ -26,5 +26,16 @@ export const themes = {
       fill5: '#8BC9F6',
       fill6: '#BEE4FF'
     }
+  },
+  light: {
+    // baaaaaad theme
+    black: {
+      fill1: '#DBDBDB',
+      fill2: '#BBBBBB',
+      fill3: '#818181',
+      fill4: '#515151',
+      fill5: '#161616',
+      fill6: '#090909'
+    }
   }
 };

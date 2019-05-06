@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { injectIntl } from 'react-intl';
+import ReactGA from 'react-ga';
 
 import LinkedIn from '../../svgs/LinkedIn';
 import GitHub from '../../svgs/GitHub';
 import Blog from '../../svgs/Blog';
 import Mail from '../../svgs/Mail';
+import Resume from '../../svgs/Resume';
 
 const ContactStyles = styled.section`
   margin: auto 10%;
@@ -56,13 +58,25 @@ function Contact({ setDescription, intl }) {
     setDescription(intl.formatMessage({ id: 'description.contact.default' }));
   });
 
+  function handleClick(linkName) {
+    ReactGA.event({
+      category: 'External Links',
+      action: 'Accessed ' + linkName
+    });
+  }
+
   return (
     <ContactStyles>
       <ContactContainer>
         <ContactTitle>
           {intl.formatMessage({ id: 'contact.LinkedIn' })}
         </ContactTitle>
-        <a href="https://www.linkedin.com/in/yuancheng-wu/" target="_">
+        <a
+          href="https://www.linkedin.com/in/yuancheng-wu/"
+          target="_blank"
+          rel="noreferrer noopener"
+          onClick={() => handleClick('LinkedIn')}
+        >
           <LinkedIn setDescription={setDescription} />
         </a>
       </ContactContainer>
@@ -70,7 +84,12 @@ function Contact({ setDescription, intl }) {
         <ContactTitle>
           {intl.formatMessage({ id: 'contact.GitHub' })}
         </ContactTitle>
-        <a href="https://github.com/YuanchengWu" target="_">
+        <a
+          href="https://github.com/YuanchengWu"
+          target="_blank"
+          rel="noreferrer noopener"
+          onClick={() => handleClick('GitHub')}
+        >
           <GitHub setDescription={setDescription} />
         </a>
       </ContactContainer>
@@ -78,7 +97,12 @@ function Contact({ setDescription, intl }) {
         <ContactTitle>
           {intl.formatMessage({ id: 'contact.Blog' })}
         </ContactTitle>
-        <a href="https://codegallop.wordpress.com/" target="_">
+        <a
+          href="https://codegallop.wordpress.com/"
+          target="_blank"
+          rel="noreferrer noopener"
+          onClick={() => handleClick('blog')}
+        >
           <Blog setDescription={setDescription} />
         </a>
       </ContactContainer>
@@ -86,8 +110,22 @@ function Contact({ setDescription, intl }) {
         <ContactTitle>
           {intl.formatMessage({ id: 'contact.Email' })}
         </ContactTitle>
-        <a href="mailto:john.wu@fullgallop.me">
+        <a
+          href="mailto:john.wu@fullgallop.me"
+          onClick={() => handleClick('email')}
+        >
           <Mail setDescription={setDescription} />
+        </a>
+      </ContactContainer>
+      <ContactContainer>
+        <ContactTitle>
+          {intl.formatMessage({ id: 'contact.Resume' })}
+        </ContactTitle>
+        <a
+          href="https://dl.dropboxusercontent.com/s/79mxo4b4ophaj4k/Resume.pdf"
+          onClick={() => handleClick('resume')}
+        >
+          <Resume setDescription={setDescription} />
         </a>
       </ContactContainer>
     </ContactStyles>

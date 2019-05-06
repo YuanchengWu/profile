@@ -10,7 +10,7 @@
   "about.paragraph1": "你好！ 我是一个开发人员和图形用户界面以及视觉设计爱好者。我喜欢使用和创建软件。现在我迷上了开发我们计算机上最重要的软件：互联网浏览器。",
   "about.paragraph2": "我的生命归功于互联网。没有它的存在，我就不会在中国以外学习和生活、学会说英语、结交了各种各样的朋友、成为美国公民、在各种学校和大学学习、找到我的妻子、并学会编码。我可能并不总是致力于为网络创建软件，但就目前而言，我真的很幸运有这个领域作为我的职业和游乐场。",
   "about.paragraph3": "哦，这是我大致位置地图。我只是需要借口把地图放在这里，因为它看起来很酷。",
-  "skills.column1": "编程语言",
+  "skills.column1": "语言",
   "skills.column2": "库和框架",
   "skills.paragraph": "以上是我现在积极使用或最近使用过的技术。显然，这些条的长度只是我对每项技能的熟练程度的个人感觉，而不是我的实际“经验水平”。因此，一些条将来会增长，而其他条可能会缩小，因为我不可避免地会发现我知之甚少。",
   "projects.message": "先看看我的",
@@ -19,6 +19,7 @@
   "contact.GitHub": "GitHub",
   "contact.Blog": "博客",
   "contact.Email": "电子邮件",
+  "contact.Resume": "简历",
   "info.title": "页后故事",
   "info.logo.title": "标志",
   "info.logo.subtitle": "我的名字",
@@ -78,5 +79,6 @@
   "description.contact.GitHub": "看看我的作品（目前不多）并协作",
   "description.contact.Blog": "当我想写除代码之外的东西",
   "description.contact.Mail": "请不要写的像垃圾邮件",
+  "description.contact.Resume": "获取一份打印机友好的PDF简历",
   "description.404": "错误"
 }
