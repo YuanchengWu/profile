@@ -64,7 +64,7 @@ function Description({ description, intl }) {
         {description && (
           <Typer
             fullText={description}
-            typingSpeed={locale === 'en' ? 10 : 30}
+            typingSpeed={locale === 'en' ? 5 : 15}
             cursor={intl.formatMessage({ id: 'text.cursor' })}
           />
         )}
