@@ -9790,16 +9790,16 @@ __metadata:
     eslint-config-react-app: ^7.0.0
     google-map-react: ^2.1.10
     prettier: ^2.5.1
-    prop-types: ^15.7.2
-    react: ^17.0.1
-    react-dom: ^17.0.1
+    prop-types: ^15.8.1
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-ga: ^3.3.0
-    react-intl: ^5.10.16
+    react-intl: ^5.24.6
     react-is: ^17.0.2
     react-resize-detector: ^7.0.0
     react-router-dom: ^6.2.1
     react-scripts: ^5.0.0
-    styled-components: ^5.2.1
+    styled-components: ^5.3.3
   languageName: unknown
   linkType: soft
 
@@ -9839,7 +9839,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.7.2":
+"prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -9985,7 +9985,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.1":
+"react-dom@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-dom@npm:17.0.2"
   dependencies:
@@ -10015,7 +10015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-intl@npm:^5.10.16":
+"react-intl@npm:^5.24.6":
   version: 5.24.6
   resolution: "react-intl@npm:5.24.6"
   dependencies:
@@ -10164,7 +10164,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^17.0.1":
+"react@npm:^17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:
@@ -11196,7 +11196,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-components@npm:^5.2.1":
+"styled-components@npm:^5.3.3":
   version: 5.3.3
   resolution: "styled-components@npm:5.3.3"
   dependencies:
