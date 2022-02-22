@@ -1,18 +1,18 @@
-import React from 'react';
-import { injectIntl } from 'react-intl';
-import styled from 'styled-components';
+import React from 'react'
+import { injectIntl } from 'react-intl'
+import styled from 'styled-components'
 
 const SVG = styled.svg`
   height: 5em;
   margin: 0.5em;
   padding-bottom: 1em;
-  stroke: ${props => props.theme.fill6};
-  filter: drop-shadow(0px 0px 8px ${props => props.theme.fill3})
-    drop-shadow(0px 0px 16px ${props => props.theme.fill3});
+  stroke: ${(props) => props.theme.fill6};
+  filter: drop-shadow(0px 0px 8px ${(props) => props.theme.fill3})
+    drop-shadow(0px 0px 16px ${(props) => props.theme.fill3});
   transition: filter 0.2s ease-in;
 
   .horse {
-    fill: ${props => props.theme.fill6};
+    fill: ${(props) => props.theme.fill6};
   }
 
   .brackets {
@@ -20,20 +20,20 @@ const SVG = styled.svg`
   }
 
   &:hover {
-    filter: drop-shadow(0 0 1px ${props => props.theme.fill3})
-      drop-shadow(0 0 2px ${props => props.theme.fill4})
-      drop-shadow(0 0 4px ${props => props.theme.fill5});
+    filter: drop-shadow(0 0 1px ${(props) => props.theme.fill3})
+      drop-shadow(0 0 2px ${(props) => props.theme.fill4})
+      drop-shadow(0 0 4px ${(props) => props.theme.fill5});
     transition: filter 0.2s ease;
   }
-`;
+`
 
 function Blog({ setDescription, intl }) {
   function handleMouseEnter() {
-    setDescription(intl.formatMessage({ id: `description.contact.Blog` }));
+    setDescription(intl.formatMessage({ id: `description.contact.Blog` }))
   }
 
   function handleMouseLeave() {
-    setDescription(intl.formatMessage({ id: 'description.contact.default' }));
+    setDescription(intl.formatMessage({ id: 'description.contact.default' }))
   }
   return (
     <SVG
@@ -57,7 +57,7 @@ function Blog({ setDescription, intl }) {
         />
       </g>
     </SVG>
-  );
+  )
 }
 
-export default injectIntl(Blog);
+export default injectIntl(Blog)

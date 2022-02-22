@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const SVG = styled.svg`
   position: absolute;
@@ -7,18 +7,18 @@ const SVG = styled.svg`
   right: 3em;
   height: 6em;
   padding-bottom: 1em;
-  stroke: ${props => props.theme.fill6};
-  filter: drop-shadow(0px 0px 8px ${props => props.theme.fill3})
-    drop-shadow(0px 0px 16px ${props => props.theme.fill3});
+  stroke: ${(props) => props.theme.fill6};
+  filter: drop-shadow(0px 0px 8px ${(props) => props.theme.fill3})
+    drop-shadow(0px 0px 16px ${(props) => props.theme.fill3});
   transition: filter 0.2s ease-in;
 
   &:hover {
-    filter: drop-shadow(0 0 1px ${props => props.theme.fill3})
-      drop-shadow(0 0 2px ${props => props.theme.fill4})
-      drop-shadow(0 0 4px ${props => props.theme.fill5});
+    filter: drop-shadow(0 0 1px ${(props) => props.theme.fill3})
+      drop-shadow(0 0 2px ${(props) => props.theme.fill4})
+      drop-shadow(0 0 4px ${(props) => props.theme.fill5});
     transition: filter 0.2s ease;
   }
-`;
+`
 
 export default function StickyLogo() {
   return (
@@ -38,5 +38,5 @@ export default function StickyLogo() {
         />
       </g>
     </SVG>
-  );
+  )
 }

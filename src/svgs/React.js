@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const SVG = styled.svg`
   min-width: 18px;
   height: 18px;
   margin-right: 0.5em;
-  fill: ${props => props.theme.fill6};
-  filter: drop-shadow(0px 0px 8px ${props => props.theme.fill3})
-    drop-shadow(0px 0px 16px ${props => props.theme.fill3});
-`;
+  fill: ${(props) => props.theme.fill6};
+  filter: drop-shadow(0px 0px 8px ${(props) => props.theme.fill3})
+    drop-shadow(0px 0px 16px ${(props) => props.theme.fill3});
+`
 
 export default function ReactJS() {
   return (
@@ -18,5 +18,5 @@ export default function ReactJS() {
         <circle cx="10" cy="9" r="2" />
       </g>
     </SVG>
-  );
+  )
 }

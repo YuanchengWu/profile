@@ -1,25 +1,25 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const SVG = styled.svg`
   min-width: 18px;
   height: 18px;
   margin-right: 0.5em;
-  filter: drop-shadow(0px 0px 8px ${props => props.theme.fill3})
-    drop-shadow(0px 0px 16px ${props => props.theme.fill3});
+  filter: drop-shadow(0px 0px 8px ${(props) => props.theme.fill3})
+    drop-shadow(0px 0px 16px ${(props) => props.theme.fill3});
 
   .darker {
-    fill: ${props => props.theme.fill3};
+    fill: ${(props) => props.theme.fill3};
   }
 
   .dark {
-    fill: ${props => props.theme.fill4};
+    fill: ${(props) => props.theme.fill4};
   }
 
   .light {
-    fill: ${props => props.theme.fill6};
+    fill: ${(props) => props.theme.fill6};
   }
-`;
+`
 
 export default function MongoDB() {
   return (
@@ -39,5 +39,5 @@ export default function MongoDB() {
         />
       </g>
     </SVG>
-  );
+  )
 }

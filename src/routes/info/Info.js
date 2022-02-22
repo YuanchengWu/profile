@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
-import styled from 'styled-components';
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { FormattedMessage } from 'react-intl'
+import styled from 'styled-components'
 
-import StickyLogo from '../../components/StickyLogo';
+import StickyLogo from '../../components/StickyLogo'
 
 const InfoStyles = styled.div`
   display: flex;
@@ -11,25 +11,25 @@ const InfoStyles = styled.div`
   padding: 3em 10%;
   align-items: center;
   min-height: min-content;
-`;
+`
 
 const Article = styled.article`
   padding: 10px;
   max-width: 960px;
   font-family: 'Chakra Petch', sans-serif;
   white-space: pre-wrap;
-  color: ${props => props.theme.fill6};
-  text-shadow: 0 0 5px ${props => props.theme.fill3},
-    0 0 10px ${props => props.theme.fill4},
-    0 0 15px ${props => props.theme.fill5};
-`;
+  color: ${(props) => props.theme.fill6};
+  text-shadow: 0 0 5px ${(props) => props.theme.fill3},
+    0 0 10px ${(props) => props.theme.fill4},
+    0 0 15px ${(props) => props.theme.fill5};
+`
 
 const H1 = styled.h1`
   font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 3em;
   font-weight: normal;
   text-transform: uppercase;
-`;
+`
 
 const H2 = styled.h2`
   font-family: 'T.C.SYSTEM', sans-serif;
@@ -37,7 +37,7 @@ const H2 = styled.h2`
   font-weight: normal;
   text-transform: uppercase;
   margin-top: 3rem;
-`;
+`
 
 const H3 = styled.h2`
   font-family: 'T.C.SYSTEM', sans-serif;
@@ -54,21 +54,21 @@ const H3 = styled.h2`
   &:after {
     content: ' ]';
   }
-`;
+`
 
 const P = styled.p`
   font-size: 1em;
   margin-bottom: 0.5em;
-`;
+`
 
 const A = styled.a`
   color: inherit;
-`;
+`
 
 export default function Info({ setShowSplash }) {
   useEffect(() => {
-    setShowSplash(false);
-  });
+    setShowSplash(false)
+  })
 
   return (
     <InfoStyles>
@@ -114,7 +114,7 @@ export default function Info({ setShowSplash }) {
                 >
                   Ace Combat 04: Shattered Skies
                 </A>
-              )
+              ),
             }}
           />
         </P>
@@ -129,7 +129,7 @@ export default function Info({ setShowSplash }) {
                 <A href="https://sketch.cloud/s/o1gR0" target="_blank">
                   Sketch Cloud
                 </A>
-              )
+              ),
             }}
           />
         </P>
@@ -155,7 +155,7 @@ export default function Info({ setShowSplash }) {
                 <A href="https://blog.cleancoder.com/" target="_blank">
                   clean
                 </A>
-              )
+              ),
             }}
           />
         </P>
@@ -173,7 +173,7 @@ export default function Info({ setShowSplash }) {
                 >
                   Hooks
                 </A>
-              )
+              ),
             }}
           />
         </P>
@@ -188,7 +188,7 @@ export default function Info({ setShowSplash }) {
                 >
                   repo
                 </A>
-              )
+              ),
             }}
           />
         </P>
@@ -211,11 +211,11 @@ export default function Info({ setShowSplash }) {
                 <A href="http://linkedin.com/in/minjeekim1128" target="_blank">
                   LinkedIn
                 </A>
-              )
+              ),
             }}
           />
         </P>
       </Article>
     </InfoStyles>
-  );
+  )
 }

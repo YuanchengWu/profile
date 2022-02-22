@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import { injectIntl } from 'react-intl';
+import React, { useEffect } from 'react'
+import styled from 'styled-components'
+import { injectIntl } from 'react-intl'
 
-import Map from './Map';
-import Paragraph from '../../components/Paragraph';
+import Map from './Map'
+import Paragraph from '../../components/Paragraph'
 
 const AboutStyles = styled.section`
   display: flex;
@@ -11,23 +11,23 @@ const AboutStyles = styled.section`
   align-items: stretch;
   margin: auto 10%;
   overflow: visible;
-`;
+`
 
 function About({ setDescription, intl }) {
   useEffect(() => {
-    setDescription(intl.formatMessage({ id: 'description.default' }));
-  });
+    setDescription(intl.formatMessage({ id: 'description.default' }))
+  })
 
   function handleMouseEnterArticle() {
-    setDescription(intl.formatMessage({ id: 'description.about.article' }));
+    setDescription(intl.formatMessage({ id: 'description.about.article' }))
   }
 
   function handleMouseEnterMap() {
-    setDescription(intl.formatMessage({ id: 'description.about.map' }));
+    setDescription(intl.formatMessage({ id: 'description.about.map' }))
   }
 
   function handleMouseLeave() {
-    setDescription(intl.formatMessage({ id: 'description.default' }));
+    setDescription(intl.formatMessage({ id: 'description.default' }))
   }
 
   return (
@@ -53,7 +53,7 @@ function About({ setDescription, intl }) {
         <Map locale={intl.locale} />
       </div>
     </AboutStyles>
-  );
+  )
 }
 
-export default injectIntl(About);
+export default injectIntl(About)

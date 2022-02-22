@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
@@ -11,10 +11,10 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
 
     ::selection {
-      background: ${props => props.theme.fill6};
+      background: ${(props) => props.theme.fill6};
     }
   }
-`;
+`
 
 export const themes = {
   dark: {
@@ -24,8 +24,8 @@ export const themes = {
       fill3: '#215D9A',
       fill4: '#6186BD',
       fill5: '#8BC9F6',
-      fill6: '#BEE4FF'
-    }
+      fill6: '#BEE4FF',
+    },
   },
   light: {
     // baaaaaad theme
@@ -35,7 +35,7 @@ export const themes = {
       fill3: '#818181',
       fill4: '#515151',
       fill5: '#161616',
-      fill6: '#090909'
-    }
-  }
-};
+      fill6: '#090909',
+    },
+  },
+}

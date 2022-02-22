@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import React, { useEffect } from 'react'
+import styled from 'styled-components'
+import { FormattedMessage, injectIntl } from 'react-intl'
 
-import SkillItem from './SkillItem';
-import Paragraph from '../../components/Paragraph';
+import SkillItem from './SkillItem'
+import Paragraph from '../../components/Paragraph'
 
-import * as icons from '../../svgs/index';
-import { progLangList, libFmwList } from './skillList';
+import * as icons from '../../svgs/index'
+import { progLangList, libFmwList } from './skillList'
 
 const SkillsStyles = styled.section`
   margin: auto 10%;
   display: flex;
   flex-direction: column;
-`;
+`
 
 const SkillColumns = styled.div`
   margin: 0 -2em;
@@ -20,7 +20,7 @@ const SkillColumns = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-`;
+`
 
 const SkillColumn = styled.div`
   margin: 0 2em;
@@ -29,16 +29,16 @@ const SkillColumn = styled.div`
   flex: 1;
   /* max-width: 38vw; */
   min-width: 450px;
-`;
+`
 
 const ColumnTitle = styled.h4`
   font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 16px;
   font-weight: normal;
-  color: ${props => props.theme.fill6};
-  text-shadow: 0 0 5px ${props => props.theme.fill3},
-    0 0 10px ${props => props.theme.fill4},
-    0 0 15px ${props => props.theme.fill5};
+  color: ${(props) => props.theme.fill6};
+  text-shadow: 0 0 5px ${(props) => props.theme.fill3},
+    0 0 10px ${(props) => props.theme.fill4},
+    0 0 15px ${(props) => props.theme.fill5};
   text-transform: uppercase;
   margin-bottom: 16px;
 
@@ -49,7 +49,7 @@ const ColumnTitle = styled.h4`
   &:after {
     content: ' ]';
   }
-`;
+`
 
 function getSkillItem(skill, setDescription) {
   return (
@@ -60,13 +60,13 @@ function getSkillItem(skill, setDescription) {
       skillLevel={skill.level}
       setDescription={setDescription}
     />
-  );
+  )
 }
 
 function Skills({ setDescription, intl }) {
   useEffect(() => {
-    setDescription(intl.formatMessage({ id: 'description.default' }));
-  });
+    setDescription(intl.formatMessage({ id: 'description.default' }))
+  })
 
   return (
     <SkillsStyles>
@@ -78,7 +78,7 @@ function Skills({ setDescription, intl }) {
               description="Programming languages column title"
             />
           </ColumnTitle>
-          {progLangList.map(lang => getSkillItem(lang, setDescription))}
+          {progLangList.map((lang) => getSkillItem(lang, setDescription))}
         </SkillColumn>
         <SkillColumn>
           <ColumnTitle>
@@ -87,7 +87,7 @@ function Skills({ setDescription, intl }) {
               description="Libraries & frameworks column title"
             />
           </ColumnTitle>
-          {libFmwList.map(lib => getSkillItem(lib, setDescription))}
+          {libFmwList.map((lib) => getSkillItem(lib, setDescription))}
         </SkillColumn>
       </SkillColumns>
       <Paragraph
@@ -95,7 +95,7 @@ function Skills({ setDescription, intl }) {
         messsageDescription="Skills page text"
       />
     </SkillsStyles>
-  );
+  )
 }
 
-export default injectIntl(Skills);
+export default injectIntl(Skills)

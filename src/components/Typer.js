@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const Blinking = styled.span`
   animation: blink 1s cubic-bezier(0, -0.82, 0.43, 0.6) infinite;
@@ -10,46 +10,46 @@ const Blinking = styled.span`
       opacity: 0;
     }
   }
-`;
+`
 
 export default class Typer extends Component {
   static defaultProps = {
     cursor: '',
-    delay: undefined
-  };
+    delay: undefined,
+  }
 
   state = {
-    text: ''
-  };
+    text: '',
+  }
 
   componentDidMount() {
-    this.handleTyping();
+    this.handleTyping()
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.fullText !== prevProps.fullText) {
-      clearTimeout(this.typerTimer);
-      this.setState({ text: '' });
+      clearTimeout(this.typerTimer)
+      this.setState({ text: '' })
     }
     if (this.state.text === '') {
-      this.handleTyping();
+      this.handleTyping()
     }
   }
 
   componentWillUnmount() {
-    clearTimeout(this.typerTimer);
+    clearTimeout(this.typerTimer)
   }
 
   handleTyping = () => {
-    const text = this.state.text;
-    const { fullText, typingSpeed } = this.props;
+    const text = this.state.text
+    const { fullText, typingSpeed } = this.props
     if (text !== fullText) {
-      this.setState({ text: fullText.substring(0, text.length + 1) });
+      this.setState({ text: fullText.substring(0, text.length + 1) })
     } else {
-      return;
+      return
     }
-    this.typerTimer = setTimeout(this.handleTyping, typingSpeed);
-  };
+    this.typerTimer = setTimeout(this.handleTyping, typingSpeed)
+  }
 
   render() {
     return (
@@ -57,7 +57,7 @@ export default class Typer extends Component {
         <span>{this.state.text}</span>
         <Blinking>{this.props.cursor}</Blinking>
       </>
-    );
+    )
   }
 }
 
@@ -65,5 +65,5 @@ Typer.propTypes = {
   fullText: PropTypes.string.isRequired,
   typingSpeed: PropTypes.number.isRequired,
   cursor: PropTypes.string,
-  delay: PropTypes.number
-};
+  delay: PropTypes.number,
+}

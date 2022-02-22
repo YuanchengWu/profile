@@ -1,15 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const SVG = styled.svg`
   min-width: 280px;
   padding-right: 2rem;
-  stroke: ${props => props.theme.fill6};
-  filter: drop-shadow(0px 0px 1px ${props => props.theme.fill3})
-    drop-shadow(0px 0px 2px ${props => props.theme.fill4})
-    drop-shadow(0px 0px 4px ${props => props.theme.fill5});
+  stroke: ${(props) => props.theme.fill6};
+  filter: drop-shadow(0px 0px 1px ${(props) => props.theme.fill3})
+    drop-shadow(0px 0px 2px ${(props) => props.theme.fill4})
+    drop-shadow(0px 0px 4px ${(props) => props.theme.fill5});
 
-  ${props =>
+  ${(props) =>
     props.animate &&
     `
   animation: scale-and-slide ${props.duration}s ease-out;
@@ -64,7 +64,7 @@ const SVG = styled.svg`
     }
   }
   `}
-`;
+`
 
 export default function Icon(props) {
   return (
@@ -89,5 +89,5 @@ export default function Icon(props) {
         />
       </g>
     </SVG>
-  );
+  )
 }

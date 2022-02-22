@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { injectIntl } from 'react-intl';
+import React, { useState } from 'react'
+import styled, { keyframes } from 'styled-components'
+import { injectIntl } from 'react-intl'
 
-import Typer from '../../components/Typer';
+import Typer from '../../components/Typer'
 
 const fadeIn = keyframes`
   from {
@@ -11,27 +11,27 @@ const fadeIn = keyframes`
   to {
     opacity: 1;
   }
-`;
+`
 
 const ExperienceItemStyles = styled.div`
   display: flex;
   flex-direction: column;
   animation: ${fadeIn} 0.5s;
-`;
+`
 
 const Technologies = styled.div`
   margin-left: 1em;
   height: 80px;
-`;
+`
 
 const TechnologiesTitle = styled.h4`
   font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 16px;
   font-weight: normal;
-  color: ${props => props.theme.fill6};
-  text-shadow: 0 0 5px ${props => props.theme.fill3},
-    0 0 10px ${props => props.theme.fill4},
-    0 0 15px ${props => props.theme.fill5};
+  color: ${(props) => props.theme.fill6};
+  text-shadow: 0 0 5px ${(props) => props.theme.fill3},
+    0 0 10px ${(props) => props.theme.fill4},
+    0 0 15px ${(props) => props.theme.fill5};
   text-transform: uppercase;
   margin-bottom: 16px;
 
@@ -42,7 +42,7 @@ const TechnologiesTitle = styled.h4`
   &:after {
     content: ' ]';
   }
-`;
+`
 
 const TechnologyIcons = styled.div`
   align-self: flex-start;
@@ -51,17 +51,17 @@ const TechnologyIcons = styled.div`
   transform: scale(2);
   animation: ${fadeIn} 0.5s linear 0.5s;
   animation-fill-mode: backwards;
-`;
+`
 
 function ExperienceItem({ Icon, setDescription, children, intl }) {
-  const [isHovering, setIsHovering] = useState(false);
+  const [isHovering, setIsHovering] = useState(false)
 
   function handleMouseEnter() {
-    setIsHovering(true);
+    setIsHovering(true)
   }
 
   function handleMouseLeave() {
-    setIsHovering(false);
+    setIsHovering(false)
   }
 
   return (
@@ -84,7 +84,7 @@ function ExperienceItem({ Icon, setDescription, children, intl }) {
         )}
       </Technologies>
     </ExperienceItemStyles>
-  );
+  )
 }
 
-export default injectIntl(ExperienceItem);
+export default injectIntl(ExperienceItem)

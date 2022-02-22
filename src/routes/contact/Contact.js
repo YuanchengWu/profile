@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import { injectIntl } from 'react-intl';
-import ReactGA from 'react-ga';
+import React, { useEffect } from 'react'
+import styled from 'styled-components'
+import { injectIntl } from 'react-intl'
+import ReactGA from 'react-ga'
 
-import LinkedIn from '../../svgs/LinkedIn';
-import GitHub from '../../svgs/GitHub';
-import Blog from '../../svgs/Blog';
-import Mail from '../../svgs/Mail';
-import Resume from '../../svgs/Resume';
+import LinkedIn from '../../svgs/LinkedIn'
+import GitHub from '../../svgs/GitHub'
+import Blog from '../../svgs/Blog'
+import Mail from '../../svgs/Mail'
+import Resume from '../../svgs/Resume'
 
 const ContactStyles = styled.section`
   margin: auto 10%;
@@ -25,22 +25,22 @@ const ContactStyles = styled.section`
       opacity: 1;
     }
   }
-`;
+`
 
 const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 const ContactTitle = styled.h4`
   font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 16px;
   font-weight: normal;
-  color: ${props => props.theme.fill6};
-  text-shadow: 0 0 5px ${props => props.theme.fill3},
-    0 0 10px ${props => props.theme.fill4},
-    0 0 15px ${props => props.theme.fill5};
+  color: ${(props) => props.theme.fill6};
+  text-shadow: 0 0 5px ${(props) => props.theme.fill3},
+    0 0 10px ${(props) => props.theme.fill4},
+    0 0 15px ${(props) => props.theme.fill5};
   text-transform: uppercase;
   margin-bottom: 16px;
 
@@ -51,18 +51,18 @@ const ContactTitle = styled.h4`
   &:after {
     content: ' ]';
   }
-`;
+`
 
 function Contact({ setDescription, intl }) {
   useEffect(() => {
-    setDescription(intl.formatMessage({ id: 'description.contact.default' }));
-  });
+    setDescription(intl.formatMessage({ id: 'description.contact.default' }))
+  })
 
   function handleClick(linkName) {
     ReactGA.event({
       category: 'External Links',
-      action: 'Accessed ' + linkName
-    });
+      action: 'Accessed ' + linkName,
+    })
   }
 
   return (
@@ -129,7 +129,7 @@ function Contact({ setDescription, intl }) {
         </a>
       </ContactContainer>
     </ContactStyles>
-  );
+  )
 }
 
-export default injectIntl(Contact);
+export default injectIntl(Contact)

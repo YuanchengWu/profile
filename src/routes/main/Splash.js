@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components/macro';
-import { injectIntl } from 'react-intl';
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import { injectIntl } from 'react-intl'
 
-import Icon from './Icon';
-import SplashText from './SplashText';
+import Icon from './Icon'
+import SplashText from './SplashText'
 
 const SplashStyle = styled.div`
   margin: 0 10%;
@@ -13,7 +13,7 @@ const SplashStyle = styled.div`
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-  animation: fade 1s linear ${props => props.fadeDelay}s 1 normal forwards;
+  animation: fade 1s linear ${(props) => props.fadeDelay}s 1 normal forwards;
 
   @keyframes fade {
     from {
@@ -23,18 +23,18 @@ const SplashStyle = styled.div`
       opacity: 0;
     }
   }
-`;
+`
 
 function Splash({ intl, setShowSplash }) {
-  const [startTyping, setStartTyping] = useState(false);
+  const [startTyping, setStartTyping] = useState(false)
 
-  const typingSpeed = 50;
-  const splashDuration = 2;
-  const splashSustain = 1.5;
-  const text = intl.formatMessage({ id: 'splash.text' });
-  const cursor = intl.formatMessage({ id: 'text.cursor' });
+  const typingSpeed = 50
+  const splashDuration = 2
+  const splashSustain = 1.5
+  const text = intl.formatMessage({ id: 'splash.text' })
+  const cursor = intl.formatMessage({ id: 'text.cursor' })
   const fadeDelay =
-    splashDuration + (text.length * typingSpeed) / 1000 + splashSustain;
+    splashDuration + (text.length * typingSpeed) / 1000 + splashSustain
   // TODO: add pause after period
 
   useEffect(() => {
@@ -42,16 +42,13 @@ function Splash({ intl, setShowSplash }) {
       const typingTimer = setTimeout(
         () => setStartTyping(true),
         splashDuration * 1000
-      );
-      setTimeout(
-        () => setShowSplash(false),
-        (fadeDelay + splashSustain) * 1000
-      );
+      )
+      setTimeout(() => setShowSplash(false), (fadeDelay + splashSustain) * 1000)
       return function cleanUp() {
-        clearTimeout(typingTimer);
-      };
+        clearTimeout(typingTimer)
+      }
     }
-  });
+  })
 
   return (
     <SplashStyle fadeDelay={fadeDelay}>
@@ -63,7 +60,7 @@ function Splash({ intl, setShowSplash }) {
         typingSpeed={typingSpeed}
       />
     </SplashStyle>
-  );
+  )
 }
 
-export default injectIntl(Splash);
+export default injectIntl(Splash)

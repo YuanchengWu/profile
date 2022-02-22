@@ -1,46 +1,46 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { injectIntl } from 'react-intl';
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import { injectIntl } from 'react-intl'
 
-import Splash from './Splash';
-import MenuItem from './MenuItem';
-import StickyLogo from '../../components/StickyLogo';
-import Typer from '../../components/Typer';
+import Splash from './Splash'
+import MenuItem from './MenuItem'
+import StickyLogo from '../../components/StickyLogo'
+import Typer from '../../components/Typer'
 
 const MainWrapper = styled.div`
   /* padding-bottom: 2.5rem; */
-`;
+`
 
 const Title = styled.h2`
   font-family: 'T.C.SYSTEM', sans-serif;
   font-size: 32px;
   font-weight: normal;
-  color: ${props => props.theme.fill6};
-  text-shadow: 0 0 5px ${props => props.theme.fill3},
-    0 0 10px ${props => props.theme.fill4},
-    0 0 15px ${props => props.theme.fill5};
+  color: ${(props) => props.theme.fill6};
+  text-shadow: 0 0 5px ${(props) => props.theme.fill3},
+    0 0 10px ${(props) => props.theme.fill4},
+    0 0 15px ${(props) => props.theme.fill5};
   text-transform: uppercase;
   margin: 72px 0 0 72px;
-`;
+`
 
 const MenuItemList = styled.ul`
   margin: 96px 0 0 120px;
   padding: 0;
-`;
+`
 
 function MainMenu({ setDescription, showSplash, setShowSplash, intl }) {
   // set default message before user interaction
   useEffect(() => {
-    setDescription(intl.formatMessage({ id: 'description.main' }));
-  });
+    setDescription(intl.formatMessage({ id: 'description.main' }))
+  })
 
   function handleMouseEnter() {
-    setDescription(intl.formatMessage({ id: 'description.main.info' }));
+    setDescription(intl.formatMessage({ id: 'description.main.info' }))
   }
 
   function handleMouseLeave() {
-    setDescription(intl.formatMessage({ id: 'description.main' }));
+    setDescription(intl.formatMessage({ id: 'description.main' }))
   }
 
   return (
@@ -63,7 +63,7 @@ function MainMenu({ setDescription, showSplash, setShowSplash, intl }) {
           </Link>
           <MenuItemList>
             {['about', 'skills', 'projects', 'experience', 'contact'].map(
-              name => (
+              (name) => (
                 <MenuItem
                   key={name}
                   name={name}
@@ -76,7 +76,7 @@ function MainMenu({ setDescription, showSplash, setShowSplash, intl }) {
         </>
       )}
     </MainWrapper>
-  );
+  )
 }
 
-export default injectIntl(MainMenu);
+export default injectIntl(MainMenu)

@@ -1,41 +1,38 @@
-import React, { useState } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import { IntlProvider, addLocaleData } from 'react-intl';
+import React, { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+import { IntlProvider, addLocaleData } from 'react-intl'
 
-import { GlobalStyle, themes } from './GlobalStyle';
-import { cookieService } from './services/cookieService';
-import { withTracker } from './withTracker';
+import { GlobalStyle, themes } from './GlobalStyle'
+import { cookieService } from './services/cookieService'
+import { withTracker } from './withTracker'
 
-import MainMenu from './routes/main/MainMenu';
-import Info from './routes/info/Info';
-import PageContent from './layout/PageContent';
-import { Footer } from './layout/Footer';
-import { Background } from './layout/Background';
-import DefaultPage from './layout/DefaultPage';
-import LocaleSlider from './components/LocaleSlider';
-import Description from './components/Description';
+import MainMenu from './routes/main/MainMenu'
+import Info from './routes/info/Info'
+import PageContent from './layout/PageContent'
+import { Footer } from './layout/Footer'
+import { Background } from './layout/Background'
+import DefaultPage from './layout/DefaultPage'
+import LocaleSlider from './components/LocaleSlider'
+import Description from './components/Description'
 
-import en from 'react-intl/locale-data/en';
-import zh from 'react-intl/locale-data/zh';
-import messagesEN from './i18n/en.json';
-import messagesZH from './i18n/zh.json';
+import messagesEN from './i18n/en.json'
+import messagesZH from './i18n/zh.json'
 
-addLocaleData([...en, ...zh]);
 const messages = {
   en: messagesEN,
-  zh: messagesZH
-};
+  zh: messagesZH,
+}
 
-const TrackedMainMenu = withTracker(MainMenu);
-const TrackedInfo = withTracker(Info);
+const TrackedMainMenu = withTracker(MainMenu)
+const TrackedInfo = withTracker(Info)
 
 function App({ location }) {
   // TODO: add session variables to store theme and locale
-  const localeCookie = cookieService.getCookie('locale');
-  const [language, setLanguage] = useState(localeCookie ? localeCookie : 'en');
-  const [showSplash, setShowSplash] = useState(true);
-  const [description, setDescription] = useState();
+  const localeCookie = cookieService.getCookie('locale')
+  const [language, setLanguage] = useState(localeCookie ? localeCookie : 'en')
+  const [showSplash, setShowSplash] = useState(true)
+  const [description, setDescription] = useState()
 
   return (
     // TODO: make theme switcher and use dynamic themes
@@ -49,11 +46,11 @@ function App({ location }) {
           <GlobalStyle />
           <Background>
             <PageContent showSplash={showSplash}>
-              <Switch>
+              <Routes>
                 <Route
                   exact
                   path="/"
-                  render={props => (
+                  render={(props) => (
                     <TrackedMainMenu
                       {...props}
                       showSplash={showSplash}
@@ -64,12 +61,12 @@ function App({ location }) {
                 />
                 <Route
                   path="/info"
-                  render={props => (
+                  render={(props) => (
                     <TrackedInfo {...props} setShowSplash={setShowSplash} />
                   )}
                 />
                 <Route
-                  render={props => (
+                  render={(props) => (
                     <DefaultPage
                       {...props}
                       setShowSplash={setShowSplash}
@@ -77,7 +74,7 @@ function App({ location }) {
                     />
                   )}
                 />
-              </Switch>
+              </Routes>
             </PageContent>
             {!showSplash && (
               <Footer>
@@ -93,7 +90,7 @@ function App({ location }) {
         </>
       </IntlProvider>
     </ThemeProvider>
-  );
+  )
 }
 
-export default withRouter(App);
+export default App

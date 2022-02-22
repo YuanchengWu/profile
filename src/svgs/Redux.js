@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const SVG = styled.svg`
   min-width: 18px;
   height: 18px;
   margin-right: 0.5em;
-  fill: ${props => props.theme.fill6};
-  filter: drop-shadow(0px 0px 8px ${props => props.theme.fill3})
-    drop-shadow(0px 0px 16px ${props => props.theme.fill3});
-`;
+  fill: ${(props) => props.theme.fill6};
+  filter: drop-shadow(0px 0px 8px ${(props) => props.theme.fill3})
+    drop-shadow(0px 0px 16px ${(props) => props.theme.fill3});
+`
 
 export default function Redux() {
   return (
@@ -19,5 +19,5 @@ export default function Redux() {
         <path d="M5.272 12.723c.023.71.596 1.277 1.283 1.277H6.6c.71-.024 1.26-.639 1.237-1.372-.023-.71-.596-1.277-1.283-1.277h-.046c-.046 0-.114 0-.16.024-.94-1.608-1.329-3.358-1.191-5.25.091-1.419.55-2.649 1.351-3.666.664-.875 1.947-1.3 2.818-1.324 2.428-.047 3.459 3.074 3.528 4.328.297.07.801.236 1.145.355C13.725 1.986 11.434 0 9.235 0 7.173 0 5.272 1.537 4.516 3.807c-1.054 3.027-.366 5.936.916 8.23a1.09 1.09 0 0 0-.16.686z" />
       </g>
     </SVG>
-  );
+  )
 }
