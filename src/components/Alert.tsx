@@ -69,10 +69,10 @@ const AlertMessage = styled.span`
 interface AlertProps {
   messageId: string
   countdown?: boolean
-  timeout: number
+  timeout?: number
 }
 
-export function Alert({ messageId, countdown, timeout }: AlertProps) {
+export function Alert({ messageId, countdown, timeout = 0 }: AlertProps) {
   const [showMessage, setShowMessage] = useState(false)
   const [count, setCount] = useState(timeout + 1)
   const intl = useIntl()

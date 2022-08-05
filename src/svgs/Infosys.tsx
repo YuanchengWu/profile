@@ -1,6 +1,6 @@
-import React from 'react'
-import { injectIntl } from 'react-intl'
+import { useIntl } from 'react-intl'
 import styled from 'styled-components'
+import { useDescription } from '../contexts/DescriptionContext'
 
 const SVG = styled.svg`
   min-width: 50px;
@@ -19,7 +19,10 @@ const SVG = styled.svg`
   }
 `
 
-function Infosys({ setDescription, intl }) {
+export function Infosys() {
+  const intl = useIntl()
+  const { setDescription } = useDescription()
+
   function handleMouseEnter() {
     setDescription(intl.formatMessage({ id: `description.experience.Infosys` }))
   }
@@ -39,5 +42,3 @@ function Infosys({ setDescription, intl }) {
     </SVG>
   )
 }
-
-export default injectIntl(Infosys)

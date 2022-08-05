@@ -3,12 +3,8 @@ import styled from 'styled-components'
 import { useIntl } from 'react-intl'
 import ReactGA from 'react-ga'
 
-import LinkedIn from '../../svgs/LinkedIn'
-import GitHub from '../../svgs/GitHub'
-import Blog from '../../svgs/Blog'
-import Mail from '../../svgs/Mail'
-import Resume from '../../svgs/Resume'
 import { useDescription } from '../../contexts/DescriptionContext'
+import { Blog, GitHub, LinkedIn, Mail, Resume } from '../../svgs'
 
 const ContactStyles = styled.section`
   margin: auto 10%;
@@ -81,7 +77,7 @@ export function Contact() {
           rel="noreferrer noopener"
           onClick={() => handleClick('LinkedIn')}
         >
-          <LinkedIn setDescription={setDescription} />
+          <LinkedIn />
         </a>
       </ContactContainer>
       <ContactContainer>
@@ -94,7 +90,7 @@ export function Contact() {
           rel="noreferrer noopener"
           onClick={() => handleClick('GitHub')}
         >
-          <GitHub setDescription={setDescription} />
+          <GitHub />
         </a>
       </ContactContainer>
       <ContactContainer>
@@ -107,7 +103,7 @@ export function Contact() {
           rel="noreferrer noopener"
           onClick={() => handleClick('blog')}
         >
-          <Blog setDescription={setDescription} />
+          <Blog />
         </a>
       </ContactContainer>
       <ContactContainer>
@@ -118,7 +114,7 @@ export function Contact() {
           href="mailto:john.wu@fullgallop.me"
           onClick={() => handleClick('email')}
         >
-          <Mail setDescription={setDescription} />
+          <Mail />
         </a>
       </ContactContainer>
       <ContactContainer>
@@ -129,7 +125,7 @@ export function Contact() {
           href="https://dl.dropboxusercontent.com/s/79mxo4b4ophaj4k/Resume.pdf"
           onClick={() => handleClick('resume')}
         >
-          <Resume setDescription={setDescription} />
+          <Resume />
         </a>
       </ContactContainer>
     </ContactStyles>

@@ -1,9 +1,13 @@
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { useIntl } from 'react-intl'
 
 import { Typer } from '../../components/Typer'
-import { useDescription } from '../../contexts/DescriptionContext'
+
+interface ExperienceItemProps {
+  Icon(): JSX.Element
+  children: ReactNode
+}
 
 const fadeIn = keyframes`
   from {
@@ -54,9 +58,8 @@ const TechnologyIcons = styled.div`
   animation-fill-mode: backwards;
 `
 
-export function ExperienceItem({ Icon, children }) {
+export function ExperienceItem({ Icon, children }: ExperienceItemProps) {
   const intl = useIntl()
-  const { setDescription } = useDescription()
   const [isHovering, setIsHovering] = useState(false)
 
   function handleMouseEnter() {
@@ -72,7 +75,7 @@ export function ExperienceItem({ Icon, children }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Icon setDescription={setDescription} />
+      <Icon />
       <Technologies>
         {isHovering && (
           <>

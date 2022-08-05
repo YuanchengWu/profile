@@ -5,7 +5,7 @@ import { FormattedMessage, useIntl } from 'react-intl'
 import { SkillItem } from './SkillItem'
 import { Paragraph } from '../../components/Paragraph'
 
-import * as icons from '../../svgs/index'
+import * as icons from '../../svgs'
 import { progLangList, libFmwList, Skill } from './skillList'
 import { useDescription } from '../../contexts/DescriptionContext'
 

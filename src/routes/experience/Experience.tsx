@@ -1,15 +1,10 @@
 import { useEffect } from 'react'
-import styled from 'styled-components'
 import { useIntl } from 'react-intl'
+import styled from 'styled-components'
 
-import { ExperienceItem } from './ExperienceItem'
-import Intel from '../../svgs/Intel'
-import Infosys from '../../svgs/Infosys'
-import Python from '../../svgs/Python'
-import Angular from '../../svgs/Angular'
-import ReactJS from '../../svgs/React'
-import Redux from '../../svgs/Redux'
 import { useDescription } from '../../contexts/DescriptionContext'
+import { Angular, Infosys, Intel, Python, ReactJS, Redux } from '../../svgs'
+import { ExperienceItem } from './ExperienceItem'
 
 const ExperienceStyles = styled.section`
   margin: auto 10%;

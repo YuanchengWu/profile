@@ -1,6 +1,6 @@
-import React from 'react'
-import { injectIntl } from 'react-intl'
+import { useIntl } from 'react-intl'
 import styled from 'styled-components'
+import { useDescription } from '../contexts/DescriptionContext'
 
 const SVG = styled.svg`
   height: 5em;
@@ -27,7 +27,10 @@ const SVG = styled.svg`
   }
 `
 
-function Blog({ setDescription, intl }) {
+export function Blog() {
+  const intl = useIntl()
+  const { setDescription } = useDescription()
+
   function handleMouseEnter() {
     setDescription(intl.formatMessage({ id: `description.contact.Blog` }))
   }
@@ -59,5 +62,3 @@ function Blog({ setDescription, intl }) {
     </SVG>
   )
 }
-
-export default injectIntl(Blog)

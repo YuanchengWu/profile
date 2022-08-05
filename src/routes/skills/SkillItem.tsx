@@ -52,7 +52,7 @@ const SkillBarBackground = styled.div`
 `
 
 interface SkillItemProps {
-  Icon: JSX.Element
+  Icon(): JSX.Element
   skill: Skill
 }
 

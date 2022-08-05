@@ -1,6 +1,6 @@
-import React from 'react'
-import { injectIntl } from 'react-intl'
+import { useIntl } from 'react-intl'
 import styled from 'styled-components'
+import { useDescription } from '../contexts/DescriptionContext'
 
 const SVG = styled.svg`
   min-width: 185px;
@@ -20,7 +20,10 @@ const SVG = styled.svg`
   }
 `
 
-function Intel({ setDescription, intl }) {
+export function Intel() {
+  const intl = useIntl()
+  const { setDescription } = useDescription()
+
   function handleMouseEnter() {
     setDescription(intl.formatMessage({ id: `description.experience.Intel` }))
   }
@@ -40,5 +43,3 @@ function Intel({ setDescription, intl }) {
     </SVG>
   )
 }
-
-export default injectIntl(Intel)

@@ -1,9 +1,9 @@
-import React from 'react'
-import { injectIntl } from 'react-intl'
+import { useIntl } from 'react-intl'
 import styled from 'styled-components'
+import { useDescription } from '../contexts/DescriptionContext'
 
 const SVG = styled.svg`
-  height: 4.5em;
+  height: 5em;
   margin: 0.5em;
   padding-bottom: 1em;
   fill: ${(props) => props.theme.fill6};
@@ -19,9 +19,12 @@ const SVG = styled.svg`
   }
 `
 
-function Resume({ setDescription, intl }) {
+export function LinkedIn() {
+  const intl = useIntl()
+  const { setDescription } = useDescription()
+
   function handleMouseEnter() {
-    setDescription(intl.formatMessage({ id: `description.contact.Resume` }))
+    setDescription(intl.formatMessage({ id: `description.contact.LinkedIn` }))
   }
 
   function handleMouseLeave() {
@@ -31,12 +34,10 @@ function Resume({ setDescription, intl }) {
     <SVG
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      viewBox="0 0 280 347"
+      viewBox="0 0 659 663"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M280 67v280H0V0h213l67 67zm-22 0l-45-45v45h45zm7 265V82h-67V15H15v317h250zm-161.6-73.6V289H52.5v24.2h-5.3v-55h56.2zm-5.3 5.3H52.5v20.1h45.6v-20.1zm55.1-5.3l14.7 13.3v26.8l-14.7 14.8h-41.5v-55h41.5zm-1.3 5.3h-34.8v44.2h34.8l10.7-10.7v-22.8l-10.7-10.7zm80.6 0h-50.9v20.1h50.9v5.3h-50.9v24.2h-5.3v-55h56.2v5.4z" />
+      <path d="M.5 48A48 48 0 0 1 49 .4H610a48 48 0 0 1 48.6 47.4v567.3a48 48 0 0 1-48.6 47.5H49A48 48 0 0 1 .5 615.3V47.9zM200 554.7v-299h-99.4v299H200zM150.3 215c34.6 0 56.2-23 56.2-51.7-.6-29.3-21.6-51.7-55.6-51.7S94.7 134 94.7 163.3c0 28.7 21.6 51.7 55 51.7h.6zM255 554.8h99.3v-167c0-8.9.7-17.8 3.3-24.2 7.2-17.9 23.5-36.4 51-36.4 36 0 50.4 27.5 50.4 67.7v159.9h99.3V383.4c0-91.9-49-134.6-114.4-134.6-53.6 0-77.1 30-90.2 50.3h.6v-43.3H255c1.3 28 0 299 0 299z" />
     </SVG>
   )
 }
-
-export default injectIntl(Resume)

@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 
 const SVG = styled.svg`
@@ -10,7 +9,7 @@ const SVG = styled.svg`
     drop-shadow(0px 0px 16px ${(props) => props.theme.fill3});
 `
 
-export default function Redux() {
+export function Redux() {
   return (
     <SVG viewBox="0 0 19 18" xmlns="http://www.w3.org/2000/svg">
       <g>
