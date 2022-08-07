@@ -1,4 +1,6 @@
-export type Skill = { name: string; level: number }
+import * as icons from '../../svgs'
+
+export type Skill = { name: keyof typeof icons; level: number }
 
 export const progLangList: Skill[] = [
   { name: 'JavaScript', level: 80 },

@@ -1,13 +1,11 @@
-import { useEffect } from 'react'
 import styled from 'styled-components'
-import { FormattedMessage, useIntl } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 
 import { SkillItem } from './SkillItem'
 import { Paragraph } from '../../components/Paragraph'
 
 import * as icons from '../../svgs'
 import { progLangList, libFmwList, Skill } from './skillList'
-import { useDescription } from '../../contexts/DescriptionContext'
 
 const SkillsStyles = styled.section`
   margin: auto 10%;
@@ -57,13 +55,6 @@ function getSkillItem(skill: Skill) {
 }
 
 export function Skills() {
-  const intl = useIntl()
-  const { setDescription } = useDescription()
-
-  useEffect(() => {
-    setDescription(intl.formatMessage({ id: 'description.default' }))
-  })
-
   return (
     <SkillsStyles>
       <SkillColumns>

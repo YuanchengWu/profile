@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl'
 import styled from 'styled-components'
 
 import { useDescription } from '../../contexts/DescriptionContext'
-import { Angular, Infosys, Intel, Python, ReactJS, Redux } from '../../svgs'
+import { Angular, Infosys, Intel, Python, React, Redux } from '../../svgs'
 import { ExperienceItem } from './ExperienceItem'
 
 const ExperienceStyles = styled.section`
@@ -29,7 +29,8 @@ export function Experience() {
       </ExperienceItem>
       <ExperienceItem Icon={Infosys}>
         <Angular />
-        <ReactJS /> <Redux />
+        <React />
+        <Redux />
       </ExperienceItem>
     </ExperienceStyles>
   )
