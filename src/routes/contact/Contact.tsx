@@ -56,7 +56,7 @@ export function Contact() {
 
   useEffect(() => {
     setDescription(intl.formatMessage({ id: 'description.contact.default' }))
-  })
+  }, [intl, setDescription])
 
   function handleClick(linkName: string) {
     ReactGA.event({

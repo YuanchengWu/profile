@@ -20,7 +20,7 @@ export function Experience() {
 
   useEffect(() => {
     setDescription(intl.formatMessage({ id: 'description.experience.default' }))
-  })
+  }, [intl, setDescription])
 
   return (
     <ExperienceStyles>

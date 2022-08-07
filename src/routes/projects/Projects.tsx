@@ -43,7 +43,7 @@ export function Projects() {
 
   useEffect(() => {
     setDescription(intl.formatMessage({ id: 'description.projects.default' }))
-  })
+  }, [intl, setDescription])
 
   return (
     <ProjectsStyles>
