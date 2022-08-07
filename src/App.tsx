@@ -6,8 +6,15 @@ import { IntlProvider } from 'react-intl'
 import { GlobalStyle, themes } from './GlobalStyle'
 import { cookieService } from './services/cookieService'
 
+// TODO: index these
 import { MainMenu } from './routes/main/MainMenu'
 import { Info } from './routes/info/Info'
+import { NoMatch } from './routes/404/NoMatch'
+import { About } from './routes/about/About'
+import { Contact } from './routes/contact/Contact'
+import { Experience } from './routes/experience/Experience'
+import { Projects } from './routes/projects/Projects'
+import { Skills } from './routes/skills/Skills'
 import PageContent from './layout/PageContent'
 import { Footer } from './layout/Footer'
 import { Background } from './layout/Background'
@@ -66,7 +73,14 @@ function App() {
                   />
                   <Route
                     element={<DefaultPage setShowSplash={setShowSplash} />}
-                  />
+                  >
+                    <Route path="/about" element={<About />} />
+                    <Route path="/skills" element={<Skills />} />
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/experience" element={<Experience />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route element={<NoMatch />} />
+                  </Route>
                 </Routes>
               </PageContent>
               {!showSplash && (

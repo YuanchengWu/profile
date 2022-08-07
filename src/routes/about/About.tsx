@@ -18,10 +18,6 @@ export function About() {
   const intl = useIntl()
   const { setDescription } = useDescription()
 
-  useEffect(() => {
-    setDescription(intl.formatMessage({ id: 'description.default' }))
-  })
-
   function handleMouseEnterArticle() {
     setDescription(intl.formatMessage({ id: 'description.about.article' }))
   }
