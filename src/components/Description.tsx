@@ -1,7 +1,6 @@
-import { useRef, useState } from 'react'
 import styled from 'styled-components'
 import { useIntl } from 'react-intl'
-import ReactResizeDetector from 'react-resize-detector'
+import { useResizeDetector } from 'react-resize-detector'
 
 import { Typer } from './Typer'
 import { useDescription } from '../contexts/DescriptionContext'
@@ -47,30 +46,19 @@ const Text = styled.div`
 export function Description() {
   const intl = useIntl()
   const { description } = useDescription()
-  const [lineHeight, setLineHeight] = useState(0)
-
-  const textRef = useRef<HTMLDivElement>(null)
-  const locale = intl.locale
-
-  // used for recalculating bar height when text wraps/unwraps on resize
-  function handleResize(height?: number) {
-    if (height) {
-      setLineHeight(height)
-    }
-  }
+  const { height, ref } = useResizeDetector()
 
   return (
     <DescriptionWrapper>
       <BarBackground>
-        <Bar barHeight={lineHeight} />
+        <Bar barHeight={height ?? 0} />
       </BarBackground>
-      <Text ref={textRef}>
+      <Text ref={ref}>
         {/* // TODO: use resize observer instead of external library */}
-        <ReactResizeDetector handleHeight onResize={handleResize} />
         {description && (
           <Typer
             fullText={description}
-            typingSpeed={locale === 'en' ? 7 : 25}
+            typingSpeed={intl.locale === 'en' ? 7 : 25}
             cursor={intl.formatMessage({ id: 'text.cursor' })}
           />
         )}
