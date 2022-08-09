@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const SVG = styled.svg<IconProps>`
-  min-width: 280px;
+  width: 280px;
   padding-right: 2rem;
   stroke: ${(props) => props.theme.fill6};
   filter: drop-shadow(0px 0px 1px ${(props) => props.theme.fill3})
