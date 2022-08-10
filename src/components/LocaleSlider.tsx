@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { useIntl } from 'react-intl'
 import ReactGA from 'react-ga'
 
-import { cookieService } from '../services/cookieService'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export type Language = 'en' | 'zh' | string
 
@@ -57,6 +57,7 @@ export function LocaleSlider({
   changeLanguage: (language: Language) => void
 }) {
   const intl = useIntl()
+  const [, setLocale] = useLocalStorage('locale', 'en')
 
   const buttons = [
     { locale: 'en', name: 'EN' },
@@ -76,7 +77,7 @@ export function LocaleSlider({
   }
 
   function handleChangeLanguage(locale: Language) {
-    cookieService.setCookie('locale', locale, 4000)
+    setLocale(locale)
     ReactGA.event({
       category: 'Language',
       action: 'Language Changed to ' + locale,

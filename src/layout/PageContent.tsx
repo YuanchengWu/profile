@@ -20,4 +20,5 @@ function areEqual(prevProp: PageContentProps, nextProp: PageContentProps) {
   return prevProp.showSplash === nextProp.showSplash
 }
 
+// FIXME: bad memoization
 export default memo(PageContent, areEqual)

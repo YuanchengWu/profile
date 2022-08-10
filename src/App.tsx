@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { IntlProvider } from 'react-intl'
 
 import { GlobalStyle, themes } from './GlobalStyle'
-import { cookieService } from './services/cookieService'
+import { useLocalStorage } from './hooks/useLocalStorage'
 
 // TODO: index these
 import { MainMenu } from './routes/main/MainMenu'
@@ -35,10 +35,8 @@ const messages: Record<Language, Record<IntlMessageKeys, string>> = {
 }
 
 function App() {
-  // TODO: add session variables to store theme and locale
-  const localeCookie = (cookieService.getCookie('locale') as Language) || null
-
-  const [language, setLanguage] = useState<Language>(localeCookie ?? 'en')
+  // TODO: add theme to local storage
+  const [locale, setLocale] = useLocalStorage('locale', 'en')
   const [showSplash, setShowSplash] = useState(true)
 
   const location = useLocation()
@@ -47,11 +45,7 @@ function App() {
   return (
     // TODO: make theme switcher and use dynamic themes
     <ThemeProvider theme={themes.dark.blue}>
-      <IntlProvider
-        key={language}
-        locale={language}
-        messages={messages[language]}
-      >
+      <IntlProvider key={locale} locale={locale} messages={messages[locale]}>
         <>
           <GlobalStyle />
           <DescriptionProvider>
@@ -88,7 +82,7 @@ function App() {
                   {/* https://medium.com/styled-components/styled-components-getting-started-c9818acbcbbd */}
                   {/* <div>theme switch</div> */}
                   {location.pathname !== '/info' && <Description />}
-                  <LocaleSlider changeLanguage={setLanguage} />
+                  <LocaleSlider changeLanguage={setLocale} />
                 </Footer>
               )}
             </Background>
