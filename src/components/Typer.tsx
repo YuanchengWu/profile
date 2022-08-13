@@ -1,71 +1,56 @@
-import { Component } from 'react'
-import styled from 'styled-components'
+import { useEffect, useState } from 'react'
+import styled, { css, keyframes } from 'styled-components'
 
-const Blinking = styled.span`
-  animation: blink 1s cubic-bezier(0, -0.82, 0.43, 0.6) infinite;
-
-  @keyframes blink {
-    to {
-      opacity: 0;
-    }
-  }
-`
+import { useInterval } from '../hooks/useInterval'
 
 interface TyperProps {
   fullText: string
+  /**
+   * The delay, in milliseconds, between each character.
+   */
   typingSpeed: number
-  cursor: string
-  delay: number
+  /**
+   * The character used to render the trailing typing cursor.
+   * @default ''
+   */
+  cursor?: string
 }
 
-// TODO: convert to functional component
-export class Typer extends Component<TyperProps> {
-  typerTimer: any
+export function Typer({ fullText, typingSpeed, cursor = '' }: TyperProps) {
+  const [text, setText] = useState('')
+  const [isDone, setIsDone] = useState(false)
 
-  static defaultProps = {
-    cursor: '',
-    delay: undefined,
-  }
+  useEffect(() => {
+    setText('')
+    setIsDone(false)
+  }, [fullText])
 
-  state = {
-    text: '',
-  }
+  useInterval(
+    () => {
+      if (text === fullText) setIsDone(true)
+      else setText(fullText.slice(0, text.length + 1))
+    },
+    isDone ? null : typingSpeed
+  )
 
-  componentDidMount() {
-    this.handleTyping()
-  }
-
-  componentDidUpdate(prevProps: TyperProps) {
-    if (this.props.fullText !== prevProps.fullText) {
-      clearTimeout(this.typerTimer)
-      this.setState({ text: '' })
-    }
-    if (this.state.text === '') {
-      this.handleTyping()
-    }
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.typerTimer)
-  }
-
-  handleTyping = () => {
-    const text = this.state.text
-    const { fullText, typingSpeed } = this.props
-    if (text !== fullText) {
-      this.setState({ text: fullText.substring(0, text.length + 1) })
-    } else {
-      return
-    }
-    this.typerTimer = setTimeout(this.handleTyping, typingSpeed)
-  }
-
-  render() {
-    return (
-      <>
-        <span>{this.state.text}</span>
-        <Blinking>{this.props.cursor}</Blinking>
-      </>
-    )
-  }
+  return (
+    <>
+      <span>{text}</span>
+      <Blinking blink={isDone}>{cursor}</Blinking>
+    </>
+  )
 }
+
+const blink = keyframes`
+  to {
+    opacity: 0;
+  }
+`
+
+const Blinking = styled.span<{ blink: boolean }>`
+  animation: ${(props) =>
+    props.blink &&
+    css`
+      ${blink} 1s cubic-bezier(0, -0.82, 0.43, 0.6) infinite;
+    `};
+`
