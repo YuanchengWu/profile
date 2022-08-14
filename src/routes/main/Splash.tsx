@@ -1,10 +1,19 @@
 import { useState, useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { useIntl } from 'react-intl'
 
 import { Icon } from './Icon'
 import SplashText from './SplashText'
 import { RouteProps } from '../RouteProps'
+
+const fade = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`
 
 const SplashStyle = styled.div<{ fadeDelay: number }>`
   margin: 0 10%;
@@ -14,16 +23,7 @@ const SplashStyle = styled.div<{ fadeDelay: number }>`
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-  animation: fade 1s linear ${(props) => props.fadeDelay}s 1 normal forwards;
-
-  @keyframes fade {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
+  gap: 2rem;
 `
 
 export function Splash({ setShowSplash }: RouteProps) {

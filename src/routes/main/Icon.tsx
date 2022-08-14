@@ -1,8 +1,48 @@
-import styled from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
+
+const scaleAndSlide = keyframes`
+  0% {
+    transform: scale(2) translateX(10vw);
+  }
+  50% {
+    transform: scale(2) translateX(10vw);
+  }
+  100% {
+    transform: scale(1);
+  }
+`
+
+const slideLeft = keyframes`
+  0% {
+    transform: translateX(400px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+`
+
+const slideRight = keyframes`
+  0% {
+    transform: translateX(-400px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+`
+
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+`
 
 const SVG = styled.svg<IconProps>`
   width: 280px;
-  padding-right: 2rem;
   stroke: ${(props) => props.theme.fill6};
   filter: drop-shadow(0px 0px 1px ${(props) => props.theme.fill3})
     drop-shadow(0px 0px 2px ${(props) => props.theme.fill4})
@@ -10,59 +50,20 @@ const SVG = styled.svg<IconProps>`
 
   ${(props) =>
     props.animate &&
-    `
-  animation: scale-and-slide ${props.duration}s ease-out;
-  .left-bracket {
-    animation: slide-left ${props.duration / 2}s ease;
-  }
+    css`
+      animation: ${scaleAndSlide} ${props.duration}s ease-out;
+      .left-bracket {
+        animation: ${slideLeft} ${props.duration / 2}s ease;
+      }
 
-  .right-bracket {
-    animation: slide-right ${props.duration / 2}s ease;
-  }
+      .right-bracket {
+        animation: ${slideRight} ${props.duration / 2}s ease;
+      }
 
-  .horse {
-    animation: fade-in ${props.duration / 2}s linear;
-  }
-
-  @keyframes scale-and-slide {
-    0% {
-      transform: scale(2) translateX(10vw);
-    }
-    50% {
-      transform: scale(2) translateX(10vw);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  @keyframes slide-left {
-    0% {
-      transform: translateX(400px);
-    }
-    100% {
-      transform: translateX(0px);
-    }
-  }
-
-  @keyframes slide-right {
-    0% {
-      transform: translateX(-400px);
-    }
-    100% {
-      transform: translateX(0px);
-    }
-  }
-
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  `}
+      .horse {
+        animation: ${fadeIn} ${props.duration / 2}s linear;
+      }
+    `}
 `
 
 interface IconProps {
