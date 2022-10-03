@@ -1,9 +1,18 @@
 import { useEffect } from 'react'
 import { useIntl, FormattedMessage } from 'react-intl'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import { Alert } from '../../components/Alert'
 import { useDescription } from '../../contexts/DescriptionContext'
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
 
 const ProjectsStyles = styled.section`
   display: flex;
@@ -21,16 +30,7 @@ const Message = styled.p`
   text-shadow: 0 0 5px ${(props) => props.theme.fill3},
     0 0 10px ${(props) => props.theme.fill4},
     0 0 15px ${(props) => props.theme.fill5};
-  animation: fade-in 1s linear 1s 1 normal forwards;
-
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+  animation: ${fadeIn} 1s linear 1s 1 normal forwards;
 `
 
 const A = styled.a`

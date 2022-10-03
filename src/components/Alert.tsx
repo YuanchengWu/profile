@@ -1,6 +1,27 @@
 import { useState, useEffect } from 'react'
 import { useIntl } from 'react-intl'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const open = keyframes`
+  0% {
+    height: 0;
+    width: 0;
+    padding: 0;
+  }
+  50% {
+    width: 0;
+    padding: 0;
+  }
+`
+
+const move = keyframes`
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 50px 50px;
+  }
+`
 
 const AlertStyles = styled.div`
   display: flex;
@@ -22,28 +43,7 @@ const AlertStyles = styled.div`
     transparent
   );
   background-size: 50px 50px;
-  animation: open 0.8s ease-out, move 3s linear infinite;
-
-  @keyframes open {
-    0% {
-      height: 0;
-      width: 0;
-      padding: 0;
-    }
-    50% {
-      width: 0;
-      padding: 0;
-    }
-  }
-
-  @keyframes move {
-    from {
-      background-position: 0 0;
-    }
-    to {
-      background-position: 50px 50px;
-    }
-  }
+  animation: ${open} 0.8s ease-out, ${move} 3s linear infinite;
 `
 
 const AlertIcon = styled.svg`

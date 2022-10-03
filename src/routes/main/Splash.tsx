@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { useIntl } from 'react-intl'
 
 import { Icon } from './Icon'
@@ -15,7 +15,12 @@ const fade = keyframes`
   }
 `
 
-const SplashStyle = styled.div<{ fadeDelay: number }>`
+const animation = (props: { fadeDelay: number }) =>
+  css`
+    ${fade} 1s linear ${props.fadeDelay}s 1 normal forwards;
+  `
+
+const SplashStyle = styled.div`
   margin: 0 10%;
   display: flex;
   height: 100vh;
@@ -24,6 +29,7 @@ const SplashStyle = styled.div<{ fadeDelay: number }>`
   align-content: center;
   flex-wrap: wrap;
   gap: 2rem;
+  animation: ${animation};
 `
 
 export function Splash({ setShowSplash }: RouteProps) {

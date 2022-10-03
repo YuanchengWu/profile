@@ -1,8 +1,14 @@
 import { useIntl } from 'react-intl'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import { useDescription } from '../../contexts/DescriptionContext'
 import { Skill } from './skillList'
+
+const grow = keyframes`
+  from {
+    width: 0;
+  }
+`
 
 const SkillItemStyles = styled.div`
   display: flex;
@@ -33,13 +39,7 @@ const SkillBar = styled.div<{ size: number }>`
   background-color: ${(props) => props.theme.fill5};
   box-shadow: 0 0 8px ${(props) => props.theme.fill3},
     0 0 16px ${(props) => props.theme.fill3};
-  animation: grow 2s cubic-bezier(0.26, 0.57, 0, 1);
-
-  @keyframes grow {
-    from {
-      width: 0;
-    }
-  }
+  animation: ${grow} 2s cubic-bezier(0.26, 0.57, 0, 1);
 `
 
 const SkillBarBackground = styled.div`

@@ -1,10 +1,19 @@
 import { useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { useIntl } from 'react-intl'
 import ReactGA from 'react-ga'
 
 import { useDescription } from '../../contexts/DescriptionContext'
 import { Blog, GitHub, LinkedIn, Mail, Resume } from '../../svgs'
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
 
 const ContactStyles = styled.section`
   margin: auto 10%;
@@ -12,16 +21,7 @@ const ContactStyles = styled.section`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-evenly;
-  animation: fade-in 0.5s;
-
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+  animation: ${fadeIn} 0.5s;
 `
 
 const ContactContainer = styled.div`
