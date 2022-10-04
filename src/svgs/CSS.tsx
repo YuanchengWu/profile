@@ -9,10 +9,10 @@ const SVG = styled.svg`
     drop-shadow(0px 0px 16px ${(props) => props.theme.fill3});
 `
 
-export function SQL() {
+export function CSS() {
   return (
-    <SVG viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8 0C3.58 0 0 1.79 0 4s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4zM0 6v3c0 2.21 3.58 4 8 4s8-1.79 8-4V6c0 2.21-3.58 4-8 4S0 8.21 0 6zm0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4z" />
+    <SVG viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.814 17.97l9.017-2.999L19.824 0H2.932L2.29 3.34h13.537l-.422 2.133H1.848l-.663 3.34h13.537l-.743 3.825-5.463 1.79-4.72-1.79.322-1.67H.784L0 14.97l7.814 3" />
     </SVG>
   )
 }

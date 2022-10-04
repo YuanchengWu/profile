@@ -1,21 +1,22 @@
 import * as icons from '../../svgs'
 
-export type Skill = { name: keyof typeof icons; level: number }
+export type Skill = { name: keyof typeof icons; level: SkillLevel }
+
+export enum SkillLevel {
+  Low = 1,
+  Medium,
+  High,
+}
 
 export const progLangList: Skill[] = [
-  { name: 'JavaScript', level: 80 },
-  { name: 'HTML5', level: 75 },
-  { name: 'CSS3', level: 55 },
-  { name: 'Python', level: 80 },
-  { name: 'Java', level: 50 },
-  { name: 'SQL', level: 30 },
+  { name: 'JavaScript', level: SkillLevel.High },
+  { name: 'HTML', level: SkillLevel.High },
+  { name: 'CSS', level: SkillLevel.High },
+  { name: 'Java', level: SkillLevel.Medium },
+  { name: 'Python', level: SkillLevel.Low },
 ]
 
 export const libFmwList: Skill[] = [
-  { name: 'React', level: 75 },
-  { name: 'Redux', level: 60 },
-  { name: 'Angular', level: 30 },
-  { name: 'MongoDB', level: 20 },
-  { name: 'Express', level: 15 },
-  { name: 'NodeJS', level: 30 },
+  { name: 'React', level: SkillLevel.High },
+  { name: 'Redux', level: SkillLevel.High },
 ]

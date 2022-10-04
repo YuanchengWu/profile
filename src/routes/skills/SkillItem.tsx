@@ -1,12 +1,16 @@
+import { ReactNode } from 'react'
 import { useIntl } from 'react-intl'
 import styled, { keyframes } from 'styled-components'
 
 import { useDescription } from '../../contexts/DescriptionContext'
 import { Skill } from './skillList'
 
-const grow = keyframes`
+const fadeIn = keyframes`
   from {
-    width: 0;
+    opacity: 0
+  }
+  to {
+    opacity: 1;
   }
 `
 
@@ -14,6 +18,7 @@ const SkillItemStyles = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 1.5em;
+  z-index: 1;
 
   &:hover {
     filter: drop-shadow(0px 0px 1px ${(props) => props.theme.fill4});
@@ -32,23 +37,36 @@ const SkillName = styled.h3`
   margin-right: 0.5em;
 `
 
-const SkillBar = styled.div<{ size: number }>`
+const SkillBar = styled.div<{ level: number }>`
+  position: relative;
+  display: inline-block;
   height: 100%;
-  width: ${(props) => props.size}%;
-  opacity: 0.9;
-  background-color: ${(props) => props.theme.fill5};
-  box-shadow: 0 0 8px ${(props) => props.theme.fill3},
-    0 0 16px ${(props) => props.theme.fill3};
-  animation: ${grow} 2s cubic-bezier(0.26, 0.57, 0, 1);
+  width: calc(33.33% - 1px);
+  background-color: ${(props) => props.theme.fill5}f0;
+  animation: ${fadeIn} 200ms ease-out ${(props) => props.level * 200}ms
+    backwards;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    box-shadow: 0 0 8px ${(props) => props.theme.fill3},
+      0 0 16px ${(props) => props.theme.fill3};
+  }
 `
 
 const SkillBarBackground = styled.div`
+  display: flex;
+  gap: 2px;
   height: 18px;
   width: 50%;
   min-width: 150px;
   border: solid ${(props) => props.theme.fill6};
   border-width: 0 1px 1px 1px;
   margin-left: auto;
+  padding: 0 2px 2px 2px;
+  box-sizing: content-box;
 `
 
 interface SkillItemProps {
@@ -78,7 +96,9 @@ export function SkillItem({ Icon, skill }: SkillItemProps) {
       <Icon />
       <SkillName>{skill.name}</SkillName>
       <SkillBarBackground>
-        <SkillBar size={skill.level} />
+        {Array.from<ReactNode>({ length: skill.level }).map((_, i) => (
+          <SkillBar level={i} />
+        ))}
       </SkillBarBackground>
     </SkillItemStyles>
   )
