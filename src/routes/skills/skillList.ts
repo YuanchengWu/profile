@@ -9,7 +9,7 @@ export enum SkillLevel {
 }
 
 export const progLangList: Skill[] = [
-  { name: 'JavaScript', level: SkillLevel.High },
+  { name: 'TypeScript', level: SkillLevel.High },
   { name: 'HTML', level: SkillLevel.High },
   { name: 'CSS', level: SkillLevel.High },
   { name: 'Java', level: SkillLevel.Medium },
