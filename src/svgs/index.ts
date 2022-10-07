@@ -5,6 +5,7 @@ export { Python } from './Python'
 export { Java } from './Java'
 export { ReactJS as React } from './React'
 export { Redux } from './Redux'
+export { ReactSpring } from './ReactSpring'
 export { Angular } from './Angular'
 
 export { Blog } from './Blog'

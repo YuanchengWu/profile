@@ -94,7 +94,7 @@ export function SkillItem({ Icon, skill }: SkillItemProps) {
       onMouseLeave={handleMouseLeave}
     >
       <Icon />
-      <SkillName>{skill.name}</SkillName>
+      <SkillName>{skill.label ?? skill.name}</SkillName>
       <SkillBarBackground>
         {Array.from<ReactNode>({ length: skill.level }).map((_, i) => (
           <SkillBar level={i} />
