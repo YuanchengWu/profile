@@ -27,4 +27,5 @@ export const libFmwList: Skill[] = [
   { name: 'React', level: SkillLevel.High },
   { name: 'Redux', level: SkillLevel.High },
   { name: 'ReactSpring', level: SkillLevel.High, label: 'React-Spring' },
+  { name: 'Storybook', level: SkillLevel.High },
 ]
