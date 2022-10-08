@@ -1,9 +1,10 @@
-import { FunctionComponent, ReactNode, SVGAttributes } from 'react'
+import { ReactNode } from 'react'
 import { useIntl } from 'react-intl'
 import styled, { keyframes } from 'styled-components'
 
 import { useDescription } from '../../contexts/DescriptionContext'
 import { Skill } from './skillList'
+import { SkillIcon, SkillIconProps } from '../../components/SkillIcon'
 
 const fadeIn = keyframes`
   from {
@@ -69,24 +70,7 @@ const SkillBarBackground = styled.div`
   box-sizing: content-box;
 `
 
-const IconContainer = styled.span`
-  min-width: 18px;
-  height: 18px;
-  margin-right: 0.5em;
-  filter: drop-shadow(0px 0px 8px ${(props) => props.theme.fill3})
-    drop-shadow(0px 0px 16px ${(props) => props.theme.fill3});
-
-  .dark {
-    fill: ${(props) => props.theme.fill4};
-  }
-
-  .light {
-    fill: ${(props) => props.theme.fill6};
-  }
-`
-
-interface SkillItemProps {
-  Icon: FunctionComponent<SVGAttributes<SVGElement>>
+interface SkillItemProps extends SkillIconProps {
   skill: Skill
 }
 
@@ -109,9 +93,7 @@ export function SkillItem({ Icon, skill }: SkillItemProps) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <IconContainer>
-        <Icon />
-      </IconContainer>
+      <SkillIcon Icon={Icon} />
       <SkillName>{skill.label ?? skill.name}</SkillName>
       <SkillBarBackground>
         {Array.from<ReactNode>({ length: skill.level }).map((_, i) => (

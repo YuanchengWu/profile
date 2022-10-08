@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { useDescription } from '../../contexts/DescriptionContext'
 import { Angular, Infosys, Intel, Python, React, Redux } from '../../svgs'
 import { ExperienceItem } from './ExperienceItem'
+import { SkillIcon } from '../../components/SkillIcon'
 
 const ExperienceStyles = styled.section`
   margin: auto 10%;
@@ -25,12 +26,12 @@ export function Experience() {
   return (
     <ExperienceStyles>
       <ExperienceItem Icon={Intel}>
-        <Python />
+        <SkillIcon Icon={Python} />
       </ExperienceItem>
       <ExperienceItem Icon={Infosys}>
-        <Angular />
-        <React />
-        <Redux />
+        <SkillIcon Icon={Angular} />
+        <SkillIcon Icon={React} />
+        <SkillIcon Icon={Redux} />
       </ExperienceItem>
     </ExperienceStyles>
   )
