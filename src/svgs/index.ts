@@ -7,6 +7,7 @@ export { ReactJS as React } from './React'
 export { Redux } from './Redux'
 export { ReactSpring } from './ReactSpring'
 export { Storybook } from './Storybook'
+export { GWT } from './GWT'
 export { Angular } from './Angular'
 
 export { Blog } from './Blog'
