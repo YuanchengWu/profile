@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { FunctionComponent, ReactNode, SVGAttributes } from 'react'
 import { useIntl } from 'react-intl'
 import styled, { keyframes } from 'styled-components'
 
@@ -69,8 +69,24 @@ const SkillBarBackground = styled.div`
   box-sizing: content-box;
 `
 
+const IconContainer = styled.span`
+  min-width: 18px;
+  height: 18px;
+  margin-right: 0.5em;
+  filter: drop-shadow(0px 0px 8px ${(props) => props.theme.fill3})
+    drop-shadow(0px 0px 16px ${(props) => props.theme.fill3});
+
+  .dark {
+    fill: ${(props) => props.theme.fill4};
+  }
+
+  .light {
+    fill: ${(props) => props.theme.fill6};
+  }
+`
+
 interface SkillItemProps {
-  Icon(): JSX.Element
+  Icon: FunctionComponent<SVGAttributes<SVGElement>>
   skill: Skill
 }
 
@@ -93,11 +109,13 @@ export function SkillItem({ Icon, skill }: SkillItemProps) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Icon />
+      <IconContainer>
+        <Icon />
+      </IconContainer>
       <SkillName>{skill.label ?? skill.name}</SkillName>
       <SkillBarBackground>
         {Array.from<ReactNode>({ length: skill.level }).map((_, i) => (
-          <SkillBar level={i} />
+          <SkillBar key={`${skill.name}-bar-${i}`} level={i} />
         ))}
       </SkillBarBackground>
     </SkillItemStyles>
