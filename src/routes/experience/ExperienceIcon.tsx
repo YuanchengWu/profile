@@ -6,9 +6,10 @@ import { useDescription } from '../../contexts/DescriptionContext'
 
 export interface ExperienceIconProps {
   Icon: FunctionComponent<SVGAttributes<SVGElement>>
+  overrideStyles: boolean
 }
 
-export function ExperienceIcon({ Icon }: ExperienceIconProps) {
+export function ExperienceIcon({ Icon, overrideStyles }: ExperienceIconProps) {
   const intl = useIntl()
   const { setDescription } = useDescription()
 
@@ -22,12 +23,20 @@ export function ExperienceIcon({ Icon }: ExperienceIconProps) {
     setDescription(intl.formatMessage({ id: 'description.experience.default' }))
   }
   return (
-    <IconContainer
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <Icon />
-    </IconContainer>
+    <>
+      {overrideStyles ? (
+        <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <Icon />
+        </span>
+      ) : (
+        <IconContainer
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <Icon />
+        </IconContainer>
+      )}
+    </>
   )
 }
 
@@ -42,7 +51,6 @@ const IconContainer = styled.span`
       filter: drop-shadow(0 0 1px ${(props) => props.theme.fill3})
         drop-shadow(0 0 2px ${(props) => props.theme.fill4})
         drop-shadow(0 0 4px ${(props) => props.theme.fill5});
-      transition: filter 0.2s ease;
     }
   }
 `

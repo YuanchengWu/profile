@@ -3,7 +3,18 @@ import { useIntl } from 'react-intl'
 import styled from 'styled-components'
 
 import { useDescription } from '../../contexts/DescriptionContext'
-import { Angular, Infosys, Intel, Python, React, Redux } from '../../svgs'
+import {
+  Angular,
+  GWT,
+  Infosys,
+  Intel,
+  Python,
+  React,
+  ReactSpring,
+  Redux,
+  Storybook,
+  Workday,
+} from '../../svgs'
 import { ExperienceItem } from './ExperienceItem'
 import { SkillIcon } from '../../components/SkillIcon'
 
@@ -32,6 +43,13 @@ export function Experience() {
         <SkillIcon Icon={Angular} />
         <SkillIcon Icon={React} />
         <SkillIcon Icon={Redux} />
+      </ExperienceItem>
+      <ExperienceItem Icon={Workday} overrideStyles>
+        <SkillIcon Icon={React} />
+        <SkillIcon Icon={Redux} />
+        <SkillIcon Icon={ReactSpring} />
+        <SkillIcon Icon={Storybook} />
+        <SkillIcon Icon={GWT} />
       </ExperienceItem>
     </ExperienceStyles>
   )

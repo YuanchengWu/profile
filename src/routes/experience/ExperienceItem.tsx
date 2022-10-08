@@ -7,6 +7,7 @@ import { ExperienceIcon } from './ExperienceIcon'
 
 interface ExperienceItemProps {
   Icon(): JSX.Element
+  overrideStyles?: boolean
   children: ReactNode
 }
 
@@ -59,7 +60,11 @@ const TechnologyIcons = styled.div`
   animation-fill-mode: backwards;
 `
 
-export function ExperienceItem({ Icon, children }: ExperienceItemProps) {
+export function ExperienceItem({
+  Icon,
+  overrideStyles = false,
+  children,
+}: ExperienceItemProps) {
   const intl = useIntl()
   const [isHovering, setIsHovering] = useState(false)
 
@@ -76,7 +81,7 @@ export function ExperienceItem({ Icon, children }: ExperienceItemProps) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <ExperienceIcon Icon={Icon} />
+      <ExperienceIcon Icon={Icon} overrideStyles={overrideStyles} />
       <Technologies>
         {isHovering && (
           <>
