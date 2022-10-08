@@ -14,7 +14,7 @@ export function ExperienceIcon({ Icon }: ExperienceIconProps) {
 
   function handleMouseEnter() {
     setDescription(
-      intl.formatMessage({ id: `description.experience.${Icon.displayName}` })
+      intl.formatMessage({ id: `description.experience.${Icon.name}` })
     )
   }
 
@@ -22,8 +22,11 @@ export function ExperienceIcon({ Icon }: ExperienceIconProps) {
     setDescription(intl.formatMessage({ id: 'description.experience.default' }))
   }
   return (
-    <IconContainer>
-      <Icon onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
+    <IconContainer
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <Icon />
     </IconContainer>
   )
 }
