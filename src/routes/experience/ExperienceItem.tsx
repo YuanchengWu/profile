@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import { useIntl } from 'react-intl'
 
 import { Typer } from '../../components/Typer'
+import { ExperienceIcon } from './ExperienceIcon'
 
 interface ExperienceItemProps {
   Icon(): JSX.Element
@@ -75,7 +76,7 @@ export function ExperienceItem({ Icon, children }: ExperienceItemProps) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Icon />
+      <ExperienceIcon Icon={Icon} />
       <Technologies>
         {isHovering && (
           <>
