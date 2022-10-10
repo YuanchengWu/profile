@@ -14,3 +14,5 @@ export function Infosys() {
     </SVG>
   )
 }
+
+Infosys.displayName = 'Infosys'

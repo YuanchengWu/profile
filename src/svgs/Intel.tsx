@@ -25,3 +25,5 @@ export function Intel() {
     </SVG>
   )
 }
+
+Intel.displayName = 'Intel'

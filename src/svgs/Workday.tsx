@@ -50,3 +50,5 @@ export function Workday() {
     </SVG>
   )
 }
+
+Workday.displayName = 'Workday'

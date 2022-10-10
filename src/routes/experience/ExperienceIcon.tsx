@@ -15,7 +15,7 @@ export function ExperienceIcon({ Icon, overrideStyles }: ExperienceIconProps) {
 
   function handleMouseEnter() {
     setDescription(
-      intl.formatMessage({ id: `description.experience.${Icon.name}` })
+      intl.formatMessage({ id: `description.experience.${Icon.displayName}` })
     )
   }
 
