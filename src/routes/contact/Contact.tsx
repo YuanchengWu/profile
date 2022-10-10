@@ -121,10 +121,7 @@ export function Contact() {
         <ContactTitle>
           {intl.formatMessage({ id: 'contact.Resume' })}
         </ContactTitle>
-        <a
-          href="https://dl.dropboxusercontent.com/s/79mxo4b4ophaj4k/Resume.pdf"
-          onClick={() => handleClick('resume')}
-        >
+        <a href="assets/Resume.pdf" onClick={() => handleClick('resume')}>
           <Resume />
         </a>
       </ContactContainer>
