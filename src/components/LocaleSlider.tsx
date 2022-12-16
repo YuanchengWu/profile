@@ -4,13 +4,13 @@ import ReactGA from 'react-ga'
 
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
-export type Language = 'en' | 'zh' | string
+export type Language = 'en' | 'ko' | 'zh' | string
 
 const SliderWrapper = styled.div`
   border: 2px solid ${(props) => props.theme.fill6};
   flex: 1;
-  min-width: 106px;
-  max-width: 106px;
+  min-width: 157px; // FIXME: should only need width
+  max-width: 157px;
   height: 27px;
   padding: 0;
   background-color: transparent;
@@ -61,6 +61,7 @@ export function LocaleSlider({
 
   const buttons = [
     { locale: 'en', name: 'EN' },
+    { locale: 'ko', name: '한' },
     { locale: 'zh', name: '中' },
   ].map((lang) => (
     <Button

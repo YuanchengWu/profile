@@ -23,6 +23,7 @@ import { Language, LocaleSlider } from './components/LocaleSlider'
 import { Description } from './components/Description'
 
 import messagesEN from './i18n/en.json'
+import messagesKO from './i18n/ko.json'
 import messagesZH from './i18n/zh.json'
 import { usePageTracking } from './hooks/usePageTracking'
 import { DescriptionProvider } from './contexts/DescriptionContext'
@@ -31,6 +32,7 @@ type IntlMessageKeys = keyof typeof messagesEN
 
 const messages: Record<Language, Record<IntlMessageKeys, string>> = {
   en: messagesEN,
+  ko: messagesKO,
   zh: messagesZH,
 }
 
